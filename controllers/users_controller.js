@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-module.exports.profile = function(req,res){
+module.exports.profile = function(req,res){  //can't go to profile directly
     // console.log('id',req.cookie.user_id)
   if(req.cookies.user_id){        //if cookie found
     User.findById(req.cookies.user_id,function(err,user){
