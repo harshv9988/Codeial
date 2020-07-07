@@ -3,6 +3,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 
+//passport setup
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
 //configuring the database
 const db = require('./config/mongoose')
 
@@ -22,6 +27,21 @@ app.use(expressLayouts);
 //these are used so that css file links goes into header after page reload
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
+
+//middleware for passport
+app.use(session({
+    name: 'checking',
+    //TODO change this in production
+    secret : 'blahsomething',
+    saveUninitialized : false,
+    resave : false,
+    cookie : {
+        maxAge: (100*60*100)
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //use express router-----below assets
 app.use('/',require('./routes/index'));
