@@ -30,7 +30,7 @@ app.set('layout extractScripts',true);
 
 //middleware for passport
 app.use(session({
-    name: 'checking',
+    name: 'codeial',
     //TODO change this in production
     secret : 'blahsomething',
     saveUninitialized : false,
