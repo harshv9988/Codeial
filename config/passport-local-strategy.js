@@ -55,13 +55,15 @@ passport.checkAuthentication = function(req,res,next){  //add this in routes
     return res.redirect('/users/sign-in');
 }
 
-passport.setAuthenticatedUser = function(req,res,next){  //add this in index.js
+//add this in index.js
+passport.setAuthenticatedUser = function(req,res,next){  
     //storing value in locals so that it can be used in ejs
     if(req.isAuthenticated()){
-        res.locals.user = res.user
+        res.locals.user = req.user;
     }
 
     next();
 }
+
 
 module.exports = passport;

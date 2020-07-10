@@ -9,7 +9,8 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
 //configuring the database
-const db = require('./config/mongoose')
+const db = require('./config/mongoose');
+const MongoStore = require('connect-mongo')(session);
 
 //middleware for form parser
 app.use(express.urlencoded());
@@ -37,7 +38,13 @@ app.use(session({
     resave : false,
     cookie : {
         maxAge: (100*60*100)
-    }
+    },
+    store : new MongoStore({
+        mongooseConnection : db,
+        autoRemove:'disabled'
+    },function(err){
+        console.log(err||'connect mongo db setup ok');
+    })
 }));
 
 app.use(passport.initialize());
