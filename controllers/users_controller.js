@@ -55,7 +55,8 @@ module.exports.createSession = function(req,res){
 }
 
 module.exports.destroySession = function(req,res){
-    req.logout();
+    //req.logout();
+    res.clearCookie('codeial');
     return res.redirect('/');
     // req.session.destroy(function (err) {
     //     res.redirect('/');
