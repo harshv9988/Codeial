@@ -20,6 +20,16 @@ const expressLayouts = require('express-ejs-layouts');
 //importing sass middleware
 const sassMiddleware = require('node-sass-middleware');
 
+//---------------------------------------------------------------------middleware--------------------------------------------------------------------
+//middleware for sass
+app.use(sassMiddleware({
+    src : './assets/scss',
+    dest : './assets/css',
+    debug : true,
+    outputStyle : 'extended',
+    prefix : '/css'
+}));
+
 //middleware for form parser
 app.use(express.urlencoded());
 
@@ -36,14 +46,9 @@ app.use(expressLayouts);
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
 
-//middleware for sass
-app.use(sassMiddleware({
-    src : './assets/scss',
-    dest : './assets/css',
-    debug : true,
-    outputStyle : 'extended',
-    prefix : '/css'
-}));
+//setup view engine
+app.set('view engine','ejs');
+app.set('views','./views');
 
 //middleware for passport
 app.use(session({
@@ -71,10 +76,6 @@ app.use(passport.setAuthenticatedUser);
 
 //use express router-----below assets
 app.use('/',require('./routes/index'));
-
-//setup view engine
-app.set('view engine','ejs');
-app.set('views','./views');
 
 app.listen(port,function(err){
     if(err){
