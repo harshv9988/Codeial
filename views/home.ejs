@@ -9,3 +9,14 @@
     </form>
 </section>
    
+<section>
+    <%for(let i of posts){%>
+    <p>
+        <%= i.content %>
+        <small>
+            <%= i.user.name %>
+        </small>
+    </p>    
+        
+    <%}%>
+</section>

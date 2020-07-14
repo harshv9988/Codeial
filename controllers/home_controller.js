@@ -1,5 +1,25 @@
+const Post = require('../models/post');
+
 module.exports.home = function(req,res){
-    return res.render('home',{
-        title:"home"
-    });
+    // Post.find({},function(err,post){
+    //     if(err){
+    //         console.log('error in fetching');
+    //         return;
+    //     }
+    //     return res.render('home',{
+    //         title:"codeial home",
+    //         posts : post
+    //     });
+    // })
+
+    Post.find({}).populate('user').exec(function(err,post){
+        if(err){
+                    console.log('error in fetching');
+                    return;
+                }
+                return res.render('home',{
+                    title:"codeial home",
+                    posts : post
+                });
+    })
 }
