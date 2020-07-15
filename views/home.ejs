@@ -28,6 +28,21 @@
         </form>
         <%}%>
     </div> 
+
+    <div class="post-comments-list">
+        <ul id="post-comments-<%=i._id%>">
+            <% for(let comment of i.comments){%>
+            <p>
+                <%= comment.content %>
+                <small>
+                    <%= comment.user.name %>
+                </small>
+            </p>    
+                
+            <%}%>
+
+        </ul>
+    </div>
         
     <%}%>
 </section>
