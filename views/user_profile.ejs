@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="/css/user_profile.css">
     <h1>profile section</h1>
 
-<p>
-    <%= user.name %>
-</p>
+
+
+<%if(locals.user.id==profile_user.id){%>
+    <form action="/users/update/<%=profile_user.id%>" method="POST">
+        <input type="text" name="name" placeholder="enter name" value="<%=profile_user.name%>">
+        <input type="submit" value="update">
+    </form>    
+<%}else{%>
+    <p>
+        <%= profile_user.name %>
+    </p>
+<%}%>

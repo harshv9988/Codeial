@@ -19,3 +19,12 @@
         </div>
     <%}%>
 </section>
+
+<section>
+    <h4>Users</h4>
+    <%for(u of all_users){%>
+        <p>
+            <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
+        </p>    
+    <%}%>
+</section>
