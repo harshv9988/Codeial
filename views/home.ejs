@@ -14,6 +14,11 @@
 <section>
     <%for(let i of posts){%>
     <p>
+        <%if(locals.user && locals.user.id==i.user.id){%>
+            <p>
+                <a href="/posts/destroy/<%=i._id %>">X</a>
+            </p>    
+        <%}%>
         <%= i.content %>
         <small>
             <%= i.user.name %>
