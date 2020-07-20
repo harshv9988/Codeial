@@ -19,7 +19,8 @@ const expressLayouts = require('express-ejs-layouts');
 
 //importing sass middleware
 const sassMiddleware = require('node-sass-middleware');
-
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 //---------------------------------------------------------------------middleware--------------------------------------------------------------------
 //middleware for sass
 app.use(sassMiddleware({
@@ -73,6 +74,10 @@ app.use(passport.session());
 
 //made in config file
 app.use(passport.setAuthenticatedUser);
+
+//import flash should be after session
+app.use(flash());
+app.use(customMware.setFlash);
 
 //use express router-----below assets
 app.use('/',require('./routes/index'));

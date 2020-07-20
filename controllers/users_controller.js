@@ -55,12 +55,14 @@ module.exports.create = function(req,res){
 }
 
 module.exports.createSession = function(req,res){
+    req.flash('success','logged in successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     //req.logout();
     res.clearCookie('codeial');
+    req.flash('success','You have logged out');
     return res.redirect('/');
     // req.session.destroy(function (err) {
     //     res.redirect('/');
