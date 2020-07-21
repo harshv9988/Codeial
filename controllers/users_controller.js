@@ -60,8 +60,8 @@ module.exports.createSession = function(req,res){
 }
 
 module.exports.destroySession = function(req,res){
-    //req.logout();
-    res.clearCookie('codeial');
+    // res.clearCookie('codeial');
+    req.logout();
     req.flash('success','You have logged out');
     return res.redirect('/');
     // req.session.destroy(function (err) {
