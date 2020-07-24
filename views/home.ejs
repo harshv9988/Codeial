@@ -11,14 +11,14 @@
     <%}%>
 </section>
    
-<section>
-  
-    <%for(i of posts){%>
-        <div>
-               <%- include('_post'); %>
-        </div>
-    <%}%>
-</section>
+<div id="post-list-container">
+    <ul>
+        <%for(i of posts){%>
+            
+                <%- include('_post'); %>
+        <%}%>
+    </ul>
+</div>
 
 <section>
     <h4>Users</h4>
@@ -28,3 +28,4 @@
         </p>    
     <%}%>
 </section>
+<script src="/javascript/home_posts.js"></script>
