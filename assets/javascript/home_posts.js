@@ -98,6 +98,11 @@
             let deleteButton = $(' .delete-post-button', self);
             deletePost(deleteButton);
 
+            //another method
+            // $('.delete-post-button',$(this)).each(function(){
+            //     deletePost($(this));
+            // });
+
             // get the post's id by splitting the id attribute
             let postId = self.prop('id').split("-")[1] 
             new postComments(postId);

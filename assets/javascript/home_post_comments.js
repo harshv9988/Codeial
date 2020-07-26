@@ -7,10 +7,13 @@ class postComments{
 
         this.createComment(postId);
 
-        // let self = this;
-        // $('.delete-comment-button',self.postContainer).each(function(){
-        //     self.deleteComment($(this)); //reminder to print $this
-        // });
+        let self = this;
+        // console.log('outer',$(this));
+        // console.log('cont',self.postContainer);
+        $('.delete-comment-button',self.postContainer).each(function(){
+            // console.log('inner',$(this));
+            self.deleteComment($(this));
+        });
     }
 
     createComment(postId){
@@ -26,6 +29,7 @@ class postComments{
                     console.log(data);
                     let newComment = globalSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
+                    globalSelf.deleteComment($('.delete-comment-button',newComment));
                     new Noty({
                         theme: 'relax',
                         text: "Comment published!",
@@ -59,4 +63,23 @@ class postComments{
     </li>
         `)
     }
+
+    deleteComment(deleteLink){
+       $(deleteLink).click(function(e){
+           e.preventDefault();
+
+           $.ajax({
+            type : 'get',
+            url : $(deleteLink).prop('href'),
+            success : function(data){
+                console.log(data);
+                $(`#comment-${data.data.comment_id}`).remove();
+            },
+            error : function(error){
+                console.log(error.responseText);
+            }
+        });
+       });
+    }
+
 }
