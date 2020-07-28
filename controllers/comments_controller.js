@@ -15,6 +15,7 @@ module.exports.create = async function(req,res){
             post.save();
 
             if(req.xhr){
+                // comment = await Comment.find({}).sort('-createdAt')
                 comment = await Comment.findById(comment._id).populate('user','name');
                 return res.status(200).json({
                     data : {
