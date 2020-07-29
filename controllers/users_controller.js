@@ -100,13 +100,17 @@ module.exports.update = async function(req,res){
                     console.log(req.file);
                 }
                 user.save();
+                req.flash('success','Profile Pic uploaded');
                 return res.redirect('back');
-            })
+            });
+        }
+        else{
+            req.flash('error','unauthorized');
+            return res.redirect('back');
         }
     }catch(err){
         req.flash('error',err);
         return res.redirect('back');
     }
 
-   
 }
