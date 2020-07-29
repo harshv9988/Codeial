@@ -1,17 +1,34 @@
 <link rel="stylesheet" href="/css/user_profile.css">
     <h1>profile section</h1>
 
-
+<img src="<%= user.avatar %>" alt="<%=user.name%>" width="100"> 
 
 <%if(locals.user.id==profile_user.id){%>
     <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="enter name" value="<%=profile_user.name%>">
 
-        <input type="file" name="avatar" placeholder="Profile Picture">
+        <input type="file" onchange="loadFile(event)" name="avatar" placeholder="Profile Picture">
         <input type="submit" value="update">
     </form>    
+    
+<div>
+    <img id="output">
+</div>
+
 <%}else{%>
     <p>
         <%= profile_user.name %>
     </p>
 <%}%>
+
+
+<script>
+
+     var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>

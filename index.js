@@ -40,6 +40,9 @@ app.use(cookieParser());
 //importing the assets folder----above than ./routes file
 app.use(express.static('./assets'));
 
+//importing for profile pic for multer
+app.use('/uploads',express.static(__dirname + '/uploads'));
+
 //using expressLayouts
 app.use(expressLayouts);
 
