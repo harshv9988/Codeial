@@ -42,6 +42,9 @@ app.use(express.static('./assets'));
 
 //importing for profile pic for multer
 app.use('/uploads',express.static(__dirname + '/uploads'));
+                        //or
+// app.use('/uploads',express.static('./uploads'));
+// app.use('/uploads',express.static(path.join(__dirname , '/uploads')));
 
 //using expressLayouts
 app.use(expressLayouts);
