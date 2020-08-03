@@ -10,6 +10,9 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
+//passport-jwt-setup
+const passportJwt = require('./config/passport-jwt-strategy');
+
 //configuring the database
 const db = require('./config/mongoose');
 const MongoStore = require('connect-mongo')(session);
@@ -79,7 +82,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //made in config file
-app.use(passport.setAuthenticatedUser);
+app.use(passportLocal.setAuthenticatedUser);
 
 //import flash should be after session
 app.use(flash());
