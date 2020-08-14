@@ -37,37 +37,32 @@
 
     let newPostDom = function(post){
         return $(`
-            <li id="post-${post._id}">
+           <li id="post-${post._id}">
+    <p>
             <p>
-                
-                    <p>
-                        <a class="delete-post-button" href="/posts/destroy/${post._id }">X</a>
-                    </p>    
-                
-                ${ post.content }
-                <small>
-                    ${post.user.name}
-                </small>
-            </p>   
-            <div>
-            
-                    <form action="/comments/create" method="POST">
-                        <input type="text" name="content" placeholder="Type here to comment">
-                        <input type="hidden" name="post" value="${post._id}">
-                        <input type="submit" value="Add Comment">
-                    </form>
-                
-            </div> 
+                <a class="delete-post-button" href="/posts/destroy/${post._id}">X</a>
+            </p>    
+        ${post.content}
+        <small>
+            ${post.user.name}
+        </small> 
+    </p>   
+    <div>
+            <form action="/comments/create" method="POST" id="post-${post._id}-comments-form">
+                <input type="text" name="content" placeholder="Type here to comment">
+                <input type="hidden" name="post" value="${post._id}">
+                <input type="submit" value="Add Comment">
+            </form>
+    </div> 
+
         
-                
-            <div class="post-comments-list">
-                <ul id="post-comments-${post._id}">
-                    
-                </ul>
-            </div>
-        
-        </li>
-        
+    <div class="post-comments-list">
+        <ul id="post-comments-${post._id}">
+           
+        </ul>
+    </div>
+
+</li>
             `)
         }
 

@@ -1,6 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
-
+const commentsMailer = require('../nodemailer/comments_mailer');
 
 module.exports.create = async function(req,res){
     try{
@@ -13,10 +13,13 @@ module.exports.create = async function(req,res){
             });
             post.comments.unshift(comment);
             post.save();
+            
+            comment = await Comment.findById(comment._id).populate('user','name email');
+            commentsMailer.newComment(comment);
 
             if(req.xhr){
-                // comment = await Comment.find({}).sort('-createdAt')
-                comment = await Comment.findById(comment._id).populate('user','name');
+                
+               
                 return res.status(200).json({
                     data : {
                         comment : comment

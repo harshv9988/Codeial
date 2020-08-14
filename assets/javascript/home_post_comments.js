@@ -4,7 +4,7 @@ class postComments{
         this.postId = postId;
         this.postContainer = $(`#post-${postId}`);
         this.newCommentForm = $(`#post-${postId}-comments-form`);
-
+        console.log('called',postId);
         this.createComment(postId);
 
         let self = this;
