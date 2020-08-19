@@ -47,6 +47,8 @@ module.exports.destroy = async function(req,res){
             comment.remove();
             
             await Post.findByIdAndUpdate(postId,{$pull : {comments : req.params.id}});
+            // or  we can do the above statement by first finding the post which have this comment and then post.comments.pull(req.params.id)
+            //see in likes controller same method
 
             if(req.xhr){
                 return res.status(200).json({
