@@ -7,7 +7,7 @@ module.exports.toggleLike = async function(req,res){
         let likeable;
         let deleted = false;
         if(req.query.type=='Post'){
-            likeable = await Post.findById(req.query.id).populated('likes');
+            likeable = await Post.findById(req.query.id).populate('likes');
         }else{
             likeable = await Comment.findById(req.query.id).populate('likes');
         }
@@ -36,6 +36,8 @@ module.exports.toggleLike = async function(req,res){
             likeable.save();
         }
 
+        //  return res.redirect('back');
+
         return res.json(200,{
             message : "Request Successfull",
             data : {
@@ -43,7 +45,10 @@ module.exports.toggleLike = async function(req,res){
             }
         });
 
-    }catch{
-
+    }catch(err){
+        console.log(err);
+        return res.json(500, {
+            message: 'Internal Server Error'
+        });
     }
 }

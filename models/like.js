@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const likeSchema = new mongoose.Schema({
     user : {
-        type : mongoose.Schema.Types.ObjectId
+        type : mongoose.Schema.ObjectId
     },
     //this defines object ID of liked object
     likeable : {
-        type :  mongoose.Schema.Types.ObjectId,
+        type :  mongoose.Schema.ObjectId,
         required : true,
         refPath : 'onModel'
     }, //this defines the type of object ID whether on POst os comment
     onModel : {
-        type : mongoose.Schema.Types.ObjectId,
+        type : String,
         required : true,
         enum : ['Post','Comment']
     }
@@ -19,5 +19,5 @@ const likeSchema = new mongoose.Schema({
     timestamps : true
 });
 
-const Like = mongoose.model('Like',postSchema);
+const Like = mongoose.model('Like',likeSchema);
 module.exports = Like;

@@ -9,6 +9,16 @@
         <small>
             <%= i.user.name %>
         </small>
+        <br>
+        <small>
+            <%if(locals.user){%>
+                <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post">
+                    <%=i.likes.length%> Likes
+                </a>    
+            <%}else{%>
+                <%=i.likes.length%> Likes
+            <%}%>
+        </small>
     </p>   
     <div>
         <%if(locals.user){%>
