@@ -1,4 +1,4 @@
-class ToggleLikes{
+class ToggleLike{
     constructor(toggleElement){
         this.toggler = toggleElement;
         this.toggleLike();
@@ -22,7 +22,8 @@ class ToggleLikes{
                 }
 
                 $(self).attr('data-likes',likesCount);
-                
+                $(self).html(`${likesCount} Likes`)
+
             })
             .fail(function(err){
                 console.log('Error in creating ajax for likes',err);
