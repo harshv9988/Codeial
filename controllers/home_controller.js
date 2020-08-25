@@ -8,14 +8,11 @@ module.exports.home = async function(req,res){
         .sort('-createdAt')
         .populate('user')
         .populate({
-            path : 'comments',
-            populate : {
-                path : 'user'
-            },
-            populate : {
-                path : 'likes'
+            path: 'comments',
+            populate: {
+                path: 'user likes'
             }
-        }).populate('comments')
+        })
         .populate('likes');
         
 

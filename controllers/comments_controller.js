@@ -1,6 +1,7 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 const commentsMailer = require('../nodemailer/comments_mailer');
+const Like = require('../models/like');
 
 module.exports.create = async function(req,res){
     try{
@@ -44,14 +45,19 @@ module.exports.destroy = async function(req,res){
         if(comment.user == req.user.id){
             let postId = comment.post;
 
+
+            
             comment.remove();
             
-            await Post.findByIdAndUpdate(postId,{$pull : {comments : req.params.id}});
+           await Post.findByIdAndUpdate(postId,{$pull : {comments : req.params.id}});
+        
             // or  we can do the above statement by first finding the post which have this comment and then post.comments.pull(req.params.id)
             //see in likes controller same method
 
+            
             // CHANGE :: destroy the associated likes for this comment
             await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+            
 
 
             if(req.xhr){
