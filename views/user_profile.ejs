@@ -30,6 +30,16 @@
     </div>      
 <%}%>
 
+<%if(locals.user && locals.user.id!=profile_user.id){%>
+    <div>
+        <p>
+            <a href="/friends/destroy/?toid=<%=profile_user._id%>">
+                Delete Friend
+            </a>
+        </p>
+    </div>      
+<%}%>
+
 
 <script>
 
