@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/user_profile.css">
     <h1>profile section</h1>
 
-<img src="<%= user.avatar %>" alt="<%=user.name%>" width="100"> 
+<img src="<%= user.avatar %>" alt="<%=profile_user.name%>" width="100"> 
 
 <%if(locals.user.id==profile_user.id){%>
     <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data">
@@ -9,8 +9,7 @@
 
         <input type="file" onchange="loadFile(event)" name="avatar" placeholder="Profile Picture">
         <input type="submit" value="update">
-    </form>    
-    
+    </form>  
 <div>
     <img id="output">
 </div>
@@ -19,6 +18,16 @@
     <p>
         <%= profile_user.name %>
     </p>
+<%}%>
+
+<%if(locals.user && locals.user.id!=profile_user.id){%>
+    <div>
+        <p>
+            <a href="/friends/create/?toid=<%=profile_user._id%>">
+                Make Friend
+            </a>
+        </p>
+    </div>      
 <%}%>
 
 

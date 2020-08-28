@@ -28,6 +28,18 @@
         </p>    
     <%}%>
 </section>
+<section>
+    <%if(locals.user){%>
+        <h4>Friends</h4>
+        <%for(friends of all_friends.friendship){%>
+            <p>
+                <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
+            </p>    
+        <%}%>    
+    <%}%>
+</section>
+
+
 <script src="/javascript/home_post_comments.js"></script>
 <script src="/javascript/home_posts.js"></script>
 <script src="/javascript/toggle_likes.js"></script>

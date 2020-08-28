@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const User = require('../models/user');
+const friendship = require('../models/friendship');
 
 module.exports.home = async function(req,res){
     try{
@@ -14,14 +15,25 @@ module.exports.home = async function(req,res){
             }
         })
         .populate('likes');
+        console.log('---------->',post);
         
 
-        let user = await User.find({})
+        let user = await User.find({});
 
+        let signInUserFriends;
+        if(req.user){
+         signInUserFriends = await User.findById(req.user._id)
+         .populate('friendship', 'name email');
+        }
+
+        console.log('------------>',signInUserFriends);
+
+       
         return res.render('home',{
             title:"codeial home",
             posts : post,
-            all_users : user
+            all_users : user,
+            all_friends : signInUserFriends
         });
     }catch(err){
         console.log('ERROR',err);
