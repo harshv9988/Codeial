@@ -91,8 +91,8 @@ module.exports.update = async function(req,res){
                 user.name = req.body.name;
     
                 if(req.file){
-
-                    if(user.avatar && fs.existsSync(path.join(__dirname , '..' , user.avatar))){
+                    //this condition after && is added so that it don't give error for first upload as it doesn't find any pic to delete
+                    if(user.avatar && fs.existsSync(path.join(__dirname , '..' , user.avatar))){  
                         fs.unlinkSync(path.join(__dirname , '..' , user.avatar));
                     }
                     
