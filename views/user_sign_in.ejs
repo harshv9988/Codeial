@@ -1,13 +1,35 @@
-<h1>
-    sign In
-</h1>
+<link rel="stylesheet" href="/css/user_sign_in.css">
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Your email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="submit">
-</form>
+<div class="box-form">
+    <div class="left">
+        <div class="overlay">
+        <h1>Hello World.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Curabitur et est sed felis aliquet sollicitudin</p>
+        <span>
+            <p>Login with Google and make your experience faster</p>
+            <a href="/users/auth/google"><i class="fab fa-google"></i></a>
+            <!-- <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a> -->
+        </span>
+        </div>
+    </div>
+    
+    
+    <form action="/users/create-session" method="POST">
 
-<p>
-    <a href="/users/auth/google">SignIN/SignUp Google</a>
-</p>
+        <div class="right">
+            <h5>Login</h5>
+            <p>Don't have an account? <a href="/users/sign-up">Creat Your Account</a> it takes less than a minute</p>
+            <div class="inputs">
+                <input type="email" name="email" placeholder="Email-id" required>
+                <br>
+                <input type="password" name="password" placeholder="password" required>
+            </div>
+                
+                <br><br>
+                <button type="submit">Login</button>
+        </div>
+
+    </form>
+    
+</div>
