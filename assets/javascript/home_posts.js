@@ -39,41 +39,57 @@
     }
 
     let newPostDom = function(post){
-        return $(`
-           <li id="post-${post._id}">
-    <p>
-            <p>
-                <a class="delete-post-button" href="/posts/destroy/${post._id}">X</a>
-            </p>    
-        ${post.content}
-        <small>
-            ${post.user.name}
-        </small> 
-        <br>
-        <small>
-            
-                <a class = "toggle-like-button" data-likes = "0" href="/likes/toggle/?id=${post._id}&type=Post">
-                    0 Likes
-                </a>    
-        </small>
-    </p>   
-    <div>
-            <form action="/comments/create" method="POST" id="post-${post._id}-comments-form">
-                <input type="text" name="content" placeholder="Type here to comment">
-                <input type="hidden" name="post" value="${post._id}">
-                <input type="submit" value="Add Comment">
-            </form>
-    </div> 
-
-        
-    <div class="post-comments-list">
-        <ul id="post-comments-${post._id}">
-           
-        </ul>
-    </div>
-
-</li>
-            `)
+       return $(`
+       <div class="card my-4"  id="post-${post._id}">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <li">
+                    <p>
+                        
+                            <p>
+                                <a class="delete-post-button" href="/posts/destroy/${post._id}">X</a>
+                            </p>    
+                       
+                        <small>
+                        ${post.content}
+                        </small>
+                        <small>
+                        ${post.user.name}
+                        </small>
+                        <br>
+                        <small>
+                            
+                                <a class = "toggle-like-button" data-likes = "0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                    0 Likes
+                                </a>    
+                           
+                                
+                            
+                        </small>
+                    </p>   
+                    <div>
+                       
+                            <form action="/comments/create" method="POST" id="post-${post._id}-comments-form">
+                                <input type="text" name="content" placeholder="Type here to comment">
+                                <input type="hidden" name="post" value="${post._id}">
+                                <input type="submit" value="Add Comment">
+                            </form>
+                       
+                    </div> 
+                
+                        
+                    <div class="post-comments-list">
+                        <ul id="post-comments-${post._id}">
+                            
+                        </ul>
+                    </div>
+                
+                </li>
+            </div>
+     </div>
+       `)
         }
 
         //----------------------------------deleting post-------------------------------------
@@ -98,7 +114,7 @@
 
         
     let convertPostsToAjax = function(){
-        $('#post-list-container>ul>li').each(function(){
+        $('#post-list-container>ul>div').each(function(){
             let self = $(this); 
             let deleteButton = $(' .delete-post-button', self);
             deletePost(deleteButton);
