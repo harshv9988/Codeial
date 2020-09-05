@@ -27,27 +27,42 @@
                     <%}%>
                 </small>
             </p>   
-            <div>
-                <%if(locals.user){%>
-                    <form action="/comments/create" method="POST" id="post-<%=i._id%>-comments-form">
-                        <input type="text" name="content" placeholder="Type here to comment">
-                        <input type="hidden" name="post" value="<%=i._id%>">
-                        <input type="submit" value="Add Comment">
-                    </form>
-                <%}%>
-            </div> 
-        
-                
-            <div class="post-comments-list">
-                <ul id="post-comments-<%=i._id%>">
-                    <% for(comment of i.comments){%>
-                        <%- include('_comments'); %>
-                    <%}%>
-                </ul>
-            </div>
+            
         
         </li>
     </div>
+    <%if(locals.user){%>
+        
+        <div class="card-footer text-muted">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" 
+            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne">
+                Collapsible Group Item #1
+              </button>
+            <div id="post-<%=i._id %>-collapse" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">
+                    <div>
+                        <%if(locals.user){%>
+                            <form action="/comments/create" method="POST" id="post-<%=i._id%>-comments-form">
+                                <input type="text" name="content" placeholder="Type here to comment">
+                                <input type="hidden" name="post" value="<%=i._id%>">
+                                <input type="submit" value="Add Comment">
+                            </form>
+                        <%}%>
+                    </div> 
+                
+                        
+                    <div class="post-comments-list">
+                        <ul id="post-comments-<%=i._id%>">
+                            <% for(comment of i.comments){%>
+                                <%- include('_comments'); %>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </div>
+        
+        <%}%>
   </div>
 
 
