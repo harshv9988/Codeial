@@ -3,10 +3,8 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <div id="home-flex">
-    
-
     <div class="home-flex-child" id="post-info">
-        <div class="card">
+        <div class="card m-4">
             <div class="card-header">
               Posts
             </div>
@@ -14,7 +12,7 @@
                 <h5 class="card-title">Hey, tell your friends about you</h5>
                 <%if(locals.user){%>
                     <form action="/posts/create" id="new-post-form" method="POST">
-                        <textarea name="content" cols="59" rows="3" required></textarea>
+                        <textarea name="content" cols="50" rows="3" required></textarea>
                         <br>
                         <input type="submit" class="btn btn-primary" value="Post">
                     </form>    
@@ -23,12 +21,12 @@
         </div>
         
         <div id="post-list-container">
-            <ul>
+            <div>
                 <%for(i of posts){%>
                     
                         <%- include('_post'); %>
                 <%}%>
-            </ul>
+                </div>
         </div>
     </div>
 

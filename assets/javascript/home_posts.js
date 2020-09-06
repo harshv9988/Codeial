@@ -14,7 +14,7 @@
                 success : function(data){
                     console.log(data);
                     let newPost = newPostDom(data.data.post);
-                    $('#post-list-container>ul').prepend(newPost);
+                    $('#post-list-container>div').prepend(newPost);
                     deletePost($('.delete-post-button',newPost));
 
                      // call the create comment class
@@ -114,7 +114,7 @@
 
         
     let convertPostsToAjax = function(){
-        $('#post-list-container>ul>div').each(function(){
+        $('#post-list-container>div>div').each(function(){
             let self = $(this); 
             let deleteButton = $(' .delete-post-button', self);
             deletePost(deleteButton);

@@ -7,33 +7,17 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-   
+    justify-content: space-between;
+    border: 1px solid black;
 
     .home-flex-child{
-        width: 48%;
+        width: 500px;
         border: 1px solid black;
-        margin: auto;
+        // margin: auto;
 
         .card{
-            width: 500px;
+            width: 450px;
 
-           .card-header{
-                .dropdown-toggle::after { 
-                    content: none; 
-                } 
-                .dropdown{
-                    text-align: right;
-                }
-           }
-
-            .card-footer{
-                button{
-                    h4{
-                        font-size: 1.0rem;
-                        margin-left: -20px;
-                    }
-                }
-            }
         }
     }
 

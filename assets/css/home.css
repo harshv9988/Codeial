@@ -4,17 +4,11 @@
 #home-flex {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid black; }
   #home-flex .home-flex-child {
-    width: 48%;
-    border: 1px solid black;
-    margin: auto; }
+    width: 500px;
+    border: 1px solid black; }
     #home-flex .home-flex-child .card {
-      width: 500px; }
-      #home-flex .home-flex-child .card .card-header .dropdown-toggle::after {
-        content: none; }
-      #home-flex .home-flex-child .card .card-header .dropdown {
-        text-align: right; }
-      #home-flex .home-flex-child .card .card-footer button h4 {
-        font-size: 1.0rem;
-        margin-left: -20px; }
+      width: 450px; }
