@@ -1,24 +1,28 @@
 <div class="card my-4" id="post-<%=i._id %>">
     <div class="card-header">
-        <div class="dropdown">
-            <a class="dropdown-toggle" type="button" id="dropdownMenuButton-<%=i._id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-<%=i._id %>">
-                <%if(locals.user && locals.user.id==i.user.id){%>  
-              <a class="delete-post-button dropdown-item" href="/posts/destroy/<%=i._id %>">Delete</a>
-              <%}%>
+        <div class="d-flex flex-row justify-content-between">
+            <div>
+                <h4 class="text-capitalize">
+                    <%= i.user.name %>
+                </h4>
             </div>
-          </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle" type="button" id="dropdownMenuButton-<%=i._id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-<%=i._id %>">
+                    <%if(locals.user && locals.user.id==i.user.id){%>  
+                        <a class="delete-post-button dropdown-item" href="/posts/destroy/<%=i._id %>">Delete</a>
+                    <%}%>
+                </div>
+            </div>
         </div>
+    </div>
     <div class="card-body">
         
             <p>
                 <small>
                     <%= i.content %>
-                </small>
-                <small>
-                    <%= i.user.name %>
                 </small>
                 <br>
                 <small>
