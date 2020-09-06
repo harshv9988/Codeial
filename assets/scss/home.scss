@@ -16,6 +16,24 @@
 
         .card{
             width: 500px;
+
+           .card-header{
+                .dropdown-toggle::after { 
+                    content: none; 
+                } 
+                .dropdown{
+                    text-align: right;
+                }
+           }
+
+            .card-footer{
+                button{
+                    h4{
+                        font-size: 1.0rem;
+                        margin-left: -20px;
+                    }
+                }
+            }
         }
     }
 

@@ -1,15 +1,19 @@
 <div class="card my-4" id="post-<%=i._id %>">
     <div class="card-header">
-      Featured
-    </div>
+        <div class="dropdown">
+            <a class="dropdown-toggle" type="button" id="dropdownMenuButton-<%=i._id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-<%=i._id %>">
+                <%if(locals.user && locals.user.id==i.user.id){%>  
+              <a class="delete-post-button dropdown-item" href="/posts/destroy/<%=i._id %>">Delete</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
     <div class="card-body">
-        <li>
+        
             <p>
-                <%if(locals.user && locals.user.id==i.user.id){%>
-                    <p>
-                        <a class="delete-post-button" href="/posts/destroy/<%=i._id %>">X</a>
-                    </p>    
-                <%}%>
                 <small>
                     <%= i.content %>
                 </small>
@@ -29,14 +33,15 @@
             </p>   
             
         
-        </li>
     </div>
     <%if(locals.user){%>
         
         <div class="card-footer text-muted">
             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" 
             data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
+            <h4><i class="fas fa-comment"></i>
+                Comments
+            </h4>
               </button>
             <div id="post-<%=i._id %>-collapse" class="collapse" aria-labelledby="headingOne">
                 <div class="card-body">
