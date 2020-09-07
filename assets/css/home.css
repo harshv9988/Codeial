@@ -12,3 +12,18 @@
     border: 1px solid black; }
     #home-flex .home-flex-child .card {
       width: 450px; }
+  #home-flex #user-info {
+    width: 300px;
+    margin-right: 10px; }
+    #home-flex #user-info h4 {
+      margin: 0px;
+      text-align: center; }
+    #home-flex #user-info .list-group-item {
+      margin: 0px;
+      text-align: center; }
+    #home-flex #user-info a {
+      text-decoration: none;
+      color: black;
+      text-transform: capitalize; }
+    #home-flex #user-info a:hover {
+      color: #7e6c91; }

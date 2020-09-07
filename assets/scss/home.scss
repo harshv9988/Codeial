@@ -21,4 +21,27 @@
         }
     }
 
+    #user-info{
+        width: 300px;
+        margin-right: 10px;
+
+        h4{
+            margin: 0px;
+            text-align: center;
+        }
+
+        .list-group-item{
+            margin: 0px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            text-transform: capitalize;
+        }
+        a:hover{
+            color:#7e6c91;
+        }
+    }
+
 }
