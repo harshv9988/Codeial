@@ -34,9 +34,20 @@
         <div>
             <h4>Users</h4>
             <%for(u of all_users){%>
-                <p class="list-group-item list-group-item-action list-group-item-info">
-                    <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
-                </p>    
+                <div class="list-group-item list-group-item-action list-group-item-info d-flex flex-row profile-info">
+                    <h3 class="profile-pic-holder">
+                        <%if(u.avatar){%>
+                            <img src="<%=u.avatar%>" alt="image">
+                        <%}else{%>
+                            <img src="/images/codeial-default-avatar2.png" alt="image">
+                        <%}%>
+                        
+                    </h3>
+                    <p>
+                        <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
+                    </p>
+                   
+                </div>    
             <%}%>
         </div>
         <div>
