@@ -15,6 +15,9 @@
                 </h3>
                 <h4 class="text-capitalize profile-name-holder">
                     <%= i.user.name %>
+                    <p class="post-date" style="font-size: 1rem;font-family: serif;">
+                        <%=i.createdAt%>
+                    </p>
                 </h4>
             </div>
             <div class="dropdown">
@@ -52,12 +55,13 @@
     <%if(locals.user){%>
         
         <div class="card-footer text-muted">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" 
-            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne">
-            <h4><i class="fas fa-comment"></i>
-                Comments
-            </h4>
-              </button>
+            <button class="btn btn-link btn-block" type="button" data-toggle="collapse" 
+            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne" style="width:140px;">
+                <h4>
+                    <i class="fas fa-comment"></i>
+                    Comments
+                </h4>
+            </button>
             <div id="post-<%=i._id %>-collapse" class="collapse" aria-labelledby="headingOne">
                 <div class="card-body">
                     <div>
@@ -84,6 +88,4 @@
         
         <%}%>
   </div>
-
-
 

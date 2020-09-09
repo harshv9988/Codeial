@@ -20,3 +20,9 @@
 .card .card-footer button h4 {
   font-size: 1.0rem;
   margin-left: -20px; }
+
+.card .card-footer .btn:focus {
+  /* Removing outlines from all button tags*/
+  outline: none !important;
+  border: none !important;
+  box-shadow: none; }

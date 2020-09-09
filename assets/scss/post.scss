@@ -32,5 +32,9 @@
                 margin-left: -20px;
             }
         }
+        .btn:focus{                   /* Removing outlines from all button tags*/
+            outline: none !important;
+            box-shadow: none;
+          }
     }
 }
