@@ -50,9 +50,15 @@
         <div class="card-footer text-muted d-flex flex-row">
             <div class="mx-2">
                 <%if(locals.user){%>
-                    <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
-                        <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
-                    </a>    
+                    <% if(i.likes.find(x=> x.user == locals.user.id)){ %>
+                        <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
+                            <%=i.likes.length%> <i class="fas fa-thumbs-up"></i>
+                        </a>  
+                        <% } else{ %>
+                            <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
+                                <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
+                            </a>  
+                        <% } %>   
                 <%}else{%>
                     <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
                 <%}%>

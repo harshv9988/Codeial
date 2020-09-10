@@ -22,7 +22,15 @@ class ToggleLike{
                 }
 
                 $(self).attr('data-likes',likesCount);
-                $(self).html(`${likesCount} Likes`)
+
+                if(data.data.deleted==false){
+                    $(self).html(`${likesCount} <i class="fas fa-thumbs-up"></i>`);
+                }
+                else{
+                    $(self).html(`${likesCount} <i class="far fa-thumbs-up"></i>`);
+                }
+                
+
 
             })
             .fail(function(err){
