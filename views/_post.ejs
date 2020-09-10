@@ -40,13 +40,6 @@
                 </small>
                 <br>
                 <small>
-                    <%if(locals.user){%>
-                        <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post">
-                            <%=i.likes.length%> Likes
-                        </a>    
-                    <%}else{%>
-                        <%=i.likes.length%> Likes
-                    <%}%>
                 </small>
             </p>   
             
@@ -54,15 +47,27 @@
     </div>
     <%if(locals.user){%>
         
-        <div class="card-footer text-muted">
-            <button class="btn btn-link btn-block" type="button" data-toggle="collapse" 
-            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne" style="width:140px;">
+        <div class="card-footer text-muted d-flex flex-row">
+            <div class="mx-2">
+                <%if(locals.user){%>
+                    <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
+                        <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
+                    </a>    
+                <%}else{%>
+                    <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
+                <%}%>
+            </div>
+            <div class="mx-2">
+                <button class="btn btn-link btn-block" type="button" data-toggle="collapse" 
+            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne" style="width:140px; text-decoration: none; padding-top: 2px;">
                 <h4>
                     <i class="fas fa-comment"></i>
                     Comments
                 </h4>
-            </button>
-            <div id="post-<%=i._id %>-collapse" class="collapse" aria-labelledby="headingOne">
+                </button>
+            </div>    
+        </div>
+            <div id="post-<%=i._id %>-collapse" class="collapse card-footer" aria-labelledby="headingOne">
                 <div class="card-body">
                     <div>
                         <%if(locals.user){%>
@@ -84,7 +89,6 @@
                     </div>
                 </div>
             </div>
-          </div>
         
         <%}%>
   </div>

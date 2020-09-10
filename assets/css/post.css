@@ -24,5 +24,4 @@
 .card .card-footer .btn:focus {
   /* Removing outlines from all button tags*/
   outline: none !important;
-  border: none !important;
   box-shadow: none; }
