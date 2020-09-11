@@ -87,7 +87,7 @@
                 
                         
                     <div class="post-comments-list">
-                        <ul id="post-comments-<%=i._id%>">
+                        <ul id="post-comments-<%=i._id%>" style="list-style-type: none; padding: 0px;">
                             <% for(comment of i.comments){%>
                                 <%- include('_comments'); %>
                             <%}%>
