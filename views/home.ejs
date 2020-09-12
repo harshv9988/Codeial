@@ -54,9 +54,19 @@
             <%if(locals.user){%>
                 <h4>Friends</h4>
                 <%for(friends of all_friends.friendship){%>
-                    <p>
-                        <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
-                    </p>    
+                    <div class="list-group-item list-group-item-action list-group-item-info d-flex flex-row profile-info">
+                        <h3 class="profile-pic-holder">
+                            <%if(u.avatar){%>
+                                <img src="<%=friends.avatar%>" alt="image">
+                            <%}else{%>
+                                <img src="/images/codeial-default-avatar2.png" alt="image">
+                            <%}%>
+                            
+                        </h3>
+                        <p>
+                            <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
+                        </p>    
+                    </div>
                 <%}%>    
             <%}%>
         </div>

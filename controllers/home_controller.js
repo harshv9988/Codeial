@@ -23,7 +23,7 @@ module.exports.home = async function(req,res){
         let signInUserFriends;
         if(req.user){
          signInUserFriends = await User.findById(req.user._id)
-         .populate('friendship', 'name email');
+         .populate('friendship', 'name email avatar');
         }
 
         console.log('------------>',signInUserFriends);
