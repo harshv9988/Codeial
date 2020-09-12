@@ -3,6 +3,24 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <div id="home-flex">
+    <div class="home-flex-child" id="user-dashboard">
+        <div class="card m-4" style="width: 18rem;">
+            <div id="dashboard-pic">
+                <%if(locals.user){%>
+                    <%if(locals.user.avatar){%>
+                        <img src="<%=locals.user.avatar%>" alt="image">
+                    <%}else{%>
+                        <img src="/images/codeial-default-avatar2.png" alt="image">
+                    <%}%>    
+                <%}%>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </div>
     <div class="home-flex-child" id="post-info">
         <div class="card m-4">
             <div class="card-header">

@@ -11,7 +11,7 @@
     border: 1px solid black;
     margin-top: 65px;
     .home-flex-child{
-        width: 500px;
+       
         border: 1px solid black;
         // margin: auto;
 
@@ -19,6 +19,26 @@
             width: 450px;
 
         }
+    }
+
+    #user-dashboard{
+    //    margin-left : 10px;
+        width: 330px;
+        #dashboard-pic{
+            height: 250px;
+            width: 250px;
+            margin: auto;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    #post-info{
+        width: 500px;
     }
 
     #user-info{
