@@ -38,7 +38,7 @@
                 <h5 class="card-title">Hey, tell your friends about you</h5>
                 <%if(locals.user){%>
                     <form action="/posts/create" id="new-post-form" method="POST">
-                        <textarea name="content" cols="50" rows="3" required></textarea>
+                        <textarea name="content" required></textarea>
                         <br>
                         <input type="submit" class="btn btn-primary" value="Post">
                     </form>    

@@ -27,6 +27,8 @@
       font-size: 1rem; }
   #home-flex #post-info {
     width: 500px; }
+    #home-flex #post-info .card-body textarea {
+      width: 80%; }
   #home-flex #user-info {
     width: 240px;
     margin-right: 10px; }
@@ -53,3 +55,34 @@
       text-transform: capitalize; }
     #home-flex #user-info a:hover {
       color: #7e6c91; }
+
+/*-------------------------------------media queries---------------------------------------------------------*/
+@media only screen and (max-width: 1100px) {
+  #home-flex #user-info {
+    display: none; } }
+
+@media only screen and (max-width: 930px) {
+  #home-flex #post-info {
+    margin: auto; }
+  #home-flex #user-dashboard {
+    display: none; } }
+
+@media only screen and (max-width: 460px) {
+  #home-flex #post-info .card-body textarea {
+    width: 80%; }
+  #home-flex .home-flex-child .card {
+    width: 350px; } }
+
+@media only screen and (max-width: 400px) {
+  #home-flex #post-info .card-body textarea {
+    height: 70px; }
+  #home-flex .home-flex-child .card {
+    width: 330px; } }
+
+@media only screen and (max-width: 380px) {
+  #home-flex .home-flex-child .card {
+    width: 300px; } }
+
+@media only screen and (max-width: 340px) {
+  #home-flex .home-flex-child .card {
+    width: 260px; } }
