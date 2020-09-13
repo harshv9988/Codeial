@@ -23,6 +23,8 @@
         height: 100%;
         border-radius: 8px;
         margin-top: 10px; }
+    #home-flex #user-dashboard #friends-dashboard-count h5 {
+      font-size: 1rem; }
   #home-flex #post-info {
     width: 500px; }
   #home-flex #user-info {
