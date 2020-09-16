@@ -15,3 +15,11 @@
   .media .media-body .comment-content {
     font-size: small;
     width: 260px; }
+
+@media only screen and (max-width: 430px) {
+  .media .media-body .comment-content {
+    width: 210px; } }
+
+@media only screen and (max-width: 330px) {
+  .media .media-body .comment-content {
+    width: 170px; } }

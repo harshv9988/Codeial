@@ -25,3 +25,10 @@
   /* Removing outlines from all button tags*/
   outline: none !important;
   box-shadow: none; }
+
+.card .card-footer form {
+  width: 250px; }
+
+@media only screen and (max-width: 430px) {
+  .card .card-footer form input {
+    font-size: smaller; } }
