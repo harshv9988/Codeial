@@ -24,6 +24,11 @@
     #user-dashboard{
     //    margin-left : 10px;
         width: 330px;
+
+        #absolute-div-dashboard{
+            position: fixed;
+        }
+
         #dashboard-pic{
             height: 250px;
             width: 250px;
@@ -55,6 +60,12 @@
     #user-info{
         width: 240px;
         margin-right: 10px;
+
+        #absolute-div-user{
+            position: fixed;
+            right: 34px;
+            top: 70px;
+        }
 
         h4{
             margin: 0px;

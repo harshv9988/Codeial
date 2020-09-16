@@ -4,6 +4,7 @@
 
 <div id="home-flex">
     <div class="home-flex-child" id="user-dashboard">
+        <div id="absolute-div-dashboard">
             <%if(locals.user){%>
                 <div class="card m-4" style="width: 18rem;">
                     <div id="dashboard-pic">
@@ -29,6 +30,8 @@
                 </div>
             <%}%>
         </div>
+            
+    </div>
     <div class="home-flex-child" id="post-info">
         <div class="card m-4">
             <div class="card-header">
@@ -57,44 +60,46 @@
     </div>
 
     <div class="home-flex-child right-text" id="user-info">
-        <div>
-            <h4>Users</h4>
-            <%for(u of all_users){%>
-                <div class="list-group-item list-group-item-action list-group-item-info d-flex flex-row profile-info">
-                    <h3 class="profile-pic-holder">
-                        <%if(u.avatar){%>
-                            <img src="<%=u.avatar%>" alt="image">
-                        <%}else{%>
-                            <img src="/images/codeial-default-avatar2.png" alt="image">
-                        <%}%>
-                        
-                    </h3>
-                    <p>
-                        <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
-                    </p>
-                   
-                </div>    
-            <%}%>
-        </div>
-        <div>
-            <%if(locals.user){%>
-                <h4>Friends</h4>
-                <%for(friends of all_friends.friendship){%>
+        <div id="absolute-div-user">
+            <div>
+                <h4>Users</h4>
+                <%for(u of all_users){%>
                     <div class="list-group-item list-group-item-action list-group-item-info d-flex flex-row profile-info">
                         <h3 class="profile-pic-holder">
                             <%if(u.avatar){%>
-                                <img src="<%=friends.avatar%>" alt="image">
+                                <img src="<%=u.avatar%>" alt="image">
                             <%}else{%>
                                 <img src="/images/codeial-default-avatar2.png" alt="image">
                             <%}%>
                             
                         </h3>
                         <p>
-                            <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
-                        </p>    
-                    </div>
-                <%}%>    
-            <%}%>
+                            <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
+                        </p>
+                       
+                    </div>    
+                <%}%>
+            </div>
+            <div>
+                <%if(locals.user){%>
+                    <h4>Friends</h4>
+                    <%for(friends of all_friends.friendship){%>
+                        <div class="list-group-item list-group-item-action list-group-item-info d-flex flex-row profile-info">
+                            <h3 class="profile-pic-holder">
+                                <%if(u.avatar){%>
+                                    <img src="<%=friends.avatar%>" alt="image">
+                                <%}else{%>
+                                    <img src="/images/codeial-default-avatar2.png" alt="image">
+                                <%}%>
+                                
+                            </h3>
+                            <p>
+                                <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
+                            </p>    
+                        </div>
+                    <%}%>    
+                <%}%>
+            </div>
         </div>
     </div>
 </div>

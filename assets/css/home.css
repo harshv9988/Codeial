@@ -14,6 +14,8 @@
       width: 450px; }
   #home-flex #user-dashboard {
     width: 330px; }
+    #home-flex #user-dashboard #absolute-div-dashboard {
+      position: fixed; }
     #home-flex #user-dashboard #dashboard-pic {
       height: 250px;
       width: 250px;
@@ -32,6 +34,10 @@
   #home-flex #user-info {
     width: 240px;
     margin-right: 10px; }
+    #home-flex #user-info #absolute-div-user {
+      position: fixed;
+      right: 34px;
+      top: 70px; }
     #home-flex #user-info h4 {
       margin: 0px;
       text-align: center; }
