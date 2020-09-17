@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/css/post.css">
 
-
 <div class="card m-4" id="post-<%=i._id %>">
     <div class="card-header">
         <div class="d-flex flex-row justify-content-between">
@@ -15,7 +14,7 @@
                 </h3>
                 <h4 class="text-capitalize profile-name-holder">
                     <%= i.user.name %>
-                    <p class="post-date" style="font-size: 1rem;font-family: serif;">
+                    <p class="post-date">
                         <%=i.createdAt%>
                     </p>
                 </h4>
@@ -51,11 +50,11 @@
             <div class="mx-2">
                 <%if(locals.user){%>
                     <% if(i.likes.find(x=> x.user == locals.user.id)){ %>
-                        <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
+                        <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post">
                             <%=i.likes.length%> <i class="fas fa-thumbs-up"></i>
                         </a>  
                         <% } else{ %>
-                            <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post" style="text-decoration: none;">
+                            <a class = "toggle-like-button" data-likes = "<%=i.likes.length%>" href="/likes/toggle/?id=<%=i._id%>&type=Post">
                                 <%=i.likes.length%> <i class="far fa-thumbs-up"></i>
                             </a>  
                         <% } %>   
@@ -65,7 +64,7 @@
             </div>
             <div class="mx-2">
                 <button class="btn btn-link btn-block" type="button" data-toggle="collapse" 
-            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne" style="width:140px; text-decoration: none; padding-top: 2px;">
+            data-target="#post-<%=i._id %>-collapse" aria-expanded="true" aria-controls="collapseOne">
                 <h4>
                     <i class="fas fa-comment"></i>
                     Comments
@@ -87,7 +86,7 @@
                 
                         
                     <div class="post-comments-list">
-                        <ul id="post-comments-<%=i._id%>" style="list-style-type: none; padding: 0px;">
+                        <ul id="post-comments-<%=i._id%>">
                             <% for(comment of i.comments){%>
                                 <%- include('_comments'); %>
                             <%}%>
