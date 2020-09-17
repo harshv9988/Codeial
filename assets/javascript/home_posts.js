@@ -44,9 +44,9 @@
       <div class="card-header">
           <div class="d-flex flex-row justify-content-between">
               <div class="d-flex flex-row profile-info">
-                  <h3 class="profile-pic-holder">
+                  <h3 class="profile-pic-holder" style="width: 55px; height: 55px; margin: 0px 5px;">
                       
-                          <img src="${post.user.avatar}" alt="image">
+                          <img src="${post.user.avatar}" alt="image" style = "width: 100%;height: 100%; border-radius: 50px;"alt="image">
                       
                   </h3>
                   <h4 class="text-capitalize profile-name-holder">
@@ -54,7 +54,7 @@
                   </h4>
               </div>
               <div class="dropdown">
-                  <a class="dropdown-toggle" type="button" id="dropdownMenuButton-${post._id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="dropdown-toggle" type="button" id="dropdownMenuButton-${post._id}"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${post._id}">
@@ -93,7 +93,7 @@
               <div class="mx-2">
                   <button class="btn btn-link btn-block" type="button" data-toggle="collapse" 
               data-target="#post-${post._id}-collapse" aria-expanded="true" aria-controls="collapseOne" style="width:140px; text-decoration: none; padding-top: 2px;">
-                  <h4>
+                  <h4 style="font-size: 1rem; margin-left: -20px;">
                       <i class="fas fa-comment"></i>
                       Comments
                   </h4>

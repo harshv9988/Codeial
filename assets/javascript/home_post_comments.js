@@ -51,9 +51,9 @@ class postComments{
         return $(`
         <li id="comment-${comment._id}">
         <div class="media m-2 border-bottom">
-            <h3 class="profile-pic-holder">
+            <h3 class="profile-pic-holder" style="width: 55px; height: 55px; margin: 0px 5px;">
                 
-                    <img src="${comment.user.avatar}" alt="image">
+                    <img src="${comment.user.avatar}" alt="image"  style = "width: 100%;height: 100%; border-radius: 50px;">
                 
             </h3>
     
@@ -61,7 +61,7 @@ class postComments{
             <div class="media-body">
                 <div class="d-flex flex-row justify-content-between" style="height: 22px; width: 100px;">
                     <div class="comment-user-name">
-                        <h5 class="mt-0">${comment.user.name}</h5>
+                        <h5 class="mt-0" style = " font-size: medium;text-transform: capitalize;">${comment.user.name}</h5>
                     </div>
                     <div>
                         
@@ -72,7 +72,7 @@ class postComments{
                     </div>
                 </div>
     
-               <div class="comment-content">
+               <div class="comment-content" style="font-size: small; width: 260px;">
                 ${comment.content}
                </div>
                 <small>
