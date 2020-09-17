@@ -50,24 +50,41 @@ class postComments{
     newCommentDom(comment){
         return $(`
         <li id="comment-${comment._id}">
-        <p>
-            
-                <p>
-                    <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-                </p>    
-            
-            ${comment.content}
-            <small>
-                ${comment.user.name}
-            </small>
-            <small>
-           
-                <a class = "toggle-like-button" data-likes = "0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                    0 Likes
-                </a>    
-        
-        </small>
-        </p>    
+        <div class="media m-2 border-bottom">
+            <h3 class="profile-pic-holder">
+                
+                    <img src="${comment.user.avatar}" alt="image">
+                
+            </h3>
+    
+    
+            <div class="media-body">
+                <div class="d-flex flex-row justify-content-between" style="height: 22px; width: 100px;">
+                    <div class="comment-user-name">
+                        <h5 class="mt-0">${comment.user.name}</h5>
+                    </div>
+                    <div>
+                        
+                            <p>
+                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
+                            </p>    
+                        
+                    </div>
+                </div>
+    
+               <div class="comment-content">
+                ${comment.content}
+               </div>
+                <small>
+                   
+                        
+                            <a class = "toggle-like-button" data-likes =  "${comment.likes.length}" href="/likes/toggle/?id=${comment._id}&type=Comment" style="text-decoration: none;">
+                                ${comment.likes.length} <i class="far fa-thumbs-up"></i>
+                            </a>   
+                   
+                </small>
+            </div>
+        </div>  
     </li>
         `)
     }

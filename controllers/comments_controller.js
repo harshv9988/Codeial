@@ -15,7 +15,7 @@ module.exports.create = async function(req,res){
             post.comments.unshift(comment);
             post.save();
             
-            comment = await Comment.findById(comment._id).populate('user','name email');
+            comment = await Comment.findById(comment._id).populate('user','name email avatar');
             //commentsMailer.newComment(comment);
 
             if(req.xhr){
