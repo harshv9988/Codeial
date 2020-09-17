@@ -62,6 +62,60 @@
     #home-flex #user-info a:hover {
       color: #7e6c91; }
 
+.welcome {
+  height: auto; }
+  .welcome #carouselExampleCaptions {
+    top: 0px !important;
+    width: 100% !important;
+    height: 600px !important;
+    margin: auto; }
+    .welcome #carouselExampleCaptions #color-change {
+      color: white; }
+  .welcome .carousel-inner {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: auto !important; }
+  .welcome #flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .welcome #flexbox .card {
+      box-shadow: 3px 5px 10px black; }
+    .welcome #flexbox .card-name {
+      font-size: large; }
+  .welcome #sign {
+    text-align: center;
+    height: 500px;
+    background-image: url("../images/back-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 0px; }
+    .welcome #sign h1 {
+      margin: 30px 0px;
+      color: #e5edf2; }
+    .welcome #sign .signed {
+      margin: 50px 20px;
+      width: 100px;
+      width: 100px;
+      background-color: transparent;
+      border: none;
+      border: 1px solid white;
+      color: white; }
+    .welcome #sign .signed:focus {
+      outline: none; }
+  .welcome .welcome_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 40%; }
+    .welcome .welcome_text .underline {
+      margin-left: 60px; }
+
 /*-------------------------------------media queries---------------------------------------------------------*/
 @media only screen and (max-width: 1100px) {
   #home-flex #user-info {
