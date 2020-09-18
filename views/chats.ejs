@@ -1,3 +1,36 @@
 <link rel="stylesheet" href="/css/chats.css">
 
 <h1>Chats Section</h1>
+
+<% if (locals.user){ %>
+	<div id="user-chat-box">
+		<ul id="chat-messages-list">
+			<li class="other-message">
+				<span>Other Message</span>
+			</li>
+			<li class="self-message">
+				<span>
+					Self Message
+				</span>
+				
+			</li>
+
+		</ul>
+		<div id="chat-message-input-container">
+			<input id="chat-message-input" placeholder="Type message here">
+			<button id="send-message">Send</button>
+		</div>
+
+	</div>
+<% } %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="/javascript/chat_engine.js"></script>
+
+<%if(locals.user){%>
+    
+   <script>
+        new ChatEngine('user-chat-box','<%=locals.user._id%>')
+   </script>
+
+<%}%>
