@@ -39,3 +39,12 @@
     padding-top: 5px;
     border-radius: 15px;
     box-shadow: 3px 3px 10px #090909; }
+  #profile-options .profile-child:hover {
+    cursor: pointer; }
+
+#display-container {
+  width: 60%;
+  margin: 30px auto; }
+
+#display-container > div {
+  display: none; }

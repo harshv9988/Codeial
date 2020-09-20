@@ -55,5 +55,18 @@ body{
         border-radius: 15px;
         box-shadow: 3px 3px 10px #090909;
     }
+
+    .profile-child:hover{
+        cursor: pointer;
+    }
+}
+
+#display-container{
+    width: 60%;
+    margin: 30px auto;
+}
+
+#display-container > div{
+    display: none;
 }
 

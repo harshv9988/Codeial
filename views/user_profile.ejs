@@ -59,20 +59,40 @@
 </div>
 
 <div id="profile-options">
-    <div id="timeline" class="profile-child">
+    <div id="timeline" class="profile-child" onclick="showTimeline()">
         <h4><i class="fas fa-stream"></i></h4>
         <h3>Timeline</h3>
     </div>
 
-    <div id="friends" class="profile-child">
+    <div id="friends" class="profile-child" onclick="showFriends()">
         <h4><i class="fas fa-user-friends"></i></h4>
         <h3>Friends</h3>
     </div>
 
-    <div id="alluser" class="profile-child">
+    <div id="alluser" class="profile-child" onclick="showAllUser()">
         <h4><i class="fas fa-users"></i></h4>
         <h3>All Users</h3>
     </div>
+</div>
+
+<div id="display-container">
+
+    <div id="post-display-container">
+        <%for(i of posts){%>
+                        
+            <%- include('_post'); %>
+
+        <%}%>
+    </div>
+
+    <div id="friend-display-container">
+        display friends
+    </div>
+
+    <div id="alluser-display-container">
+        display all user
+    </div>
+
 </div>
 
 
@@ -114,6 +134,24 @@
 
 <script>
 
+    function showTimeline(){
+        $('#post-display-container').css('display','block');
+        $('#friend-display-container').css('display','none');
+        $('#alluser-display-container').css('display','none');
+    }
+
+    function showFriends(){
+        $('#post-display-container').css('display','none');
+        $('#friend-display-container').css('display','block');
+        $('#alluser-display-container').css('display','none');
+    }
+
+    function showAllUser(){
+        $('#post-display-container').css('display','none');
+        $('#friend-display-container').css('display','none');
+        $('#alluser-display-container').css('display','block');
+    }
+
      var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
@@ -121,4 +159,30 @@
       URL.revokeObjectURL(output.src) // free memory
     }
   };
+</script>
+
+<script src="/javascript/home_post_comments.js"></script>
+<script src="/javascript/home_posts.js"></script>
+<script src="/javascript/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    })
+</script>
+
+<script>
+    $('.post-date').each(function(){
+        let selfdate = $(this).text();
+       selfdate =  selfdate.trim();
+        // console.log(selfdate)
+        // let time = selfdate.substring(17,21);
+        let month = selfdate.substring(4,7);
+        let date = selfdate.substring(8,10);
+        // console.log(date)
+
+        let newDate = date+" "+month
+        // console.log(newDate)
+        $(this).text(newDate)
+    })
 </script>
