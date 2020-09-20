@@ -78,11 +78,14 @@
 <div id="display-container">
 
     <div id="post-display-container">
-        <%for(i of posts){%>
-                        
-            <%- include('_post'); %>
-
-        <%}%>
+        <div id="post-list-container">
+            <div>
+                <%for(i of posts){%>
+                    
+                        <%- include('_post'); %>
+                <%}%>
+            </div>
+        </div>
     </div>
 
     <div id="friend-display-container">
