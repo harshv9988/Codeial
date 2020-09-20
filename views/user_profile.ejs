@@ -1,33 +1,60 @@
-<link rel="stylesheet" href="/css/user_profile.css">
-   
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+<link rel="stylesheet" href="/css/user_profile.css">
 
 <div id="dashboard-one">
 
     <div id="dashboard-pic-container">
-        <img src="<%= profile_user.avatar %>" alt="<%=profile_user.name%>" width="100"> 
-    </div>
-
-    
-
-    <div>
-        <%if(locals.user.id==profile_user.id){%>
-            <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data">
-                <input type="text" name="name" placeholder="enter name" value="<%=profile_user.name%>">
-        
-                <input type="file" onchange="loadFile(event)" name="avatar" placeholder="Profile Picture">
-                <input type="submit" value="update">
-            </form>  
-        <div>
-            <img id="output">
-        </div>
-        
+        <%if(profile_user.avatar){%>
+            <img src="<%= profile_user.avatar %>" alt="<%=profile_user.name%>" width="100"> 
         <%}else{%>
-            <p>
-                <%= profile_user.name %>
-            </p>
+            <img src="/images/codeial-default-avatar2.png" alt="">    
         <%}%>
+        
     </div>
+
+    <div id="edit-profile">
+        <%if(locals.user.id==profile_user.id){%>
+           
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Edit Profile
+              </button>
+              
+        <%}%>    
+    </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Your Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data" id="update-profile-form">
+                        <label for="profile-name">Profile Name</label>
+                        <input type="text" class="form-control" id="profile-name" name="name" placeholder="enter name" value="<%=profile_user.name%>">
+                        <label for="file-upload">Choose Profile Pic</label>
+                        <input type="file" class="form-control-file" id="file-upload" onchange="loadFile(event)" name="avatar" placeholder="Profile Picture">
+                       
+                    </form>  
+                </div>
+                <div id="preview-holder">
+                    <img id="output">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="update-profile-form" >Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     
 </div>
 
@@ -61,6 +88,12 @@
 <div>
     <a href="/messages/chats">Go to chats</a>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 <script>
 

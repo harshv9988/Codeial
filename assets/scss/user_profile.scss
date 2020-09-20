@@ -20,5 +20,24 @@ body{
             border-radius: 50%;
         }
     }
+
+    #edit-profile{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+        font-size: x-small;
+    }
+
+    #preview-holder{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
