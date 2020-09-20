@@ -42,9 +42,14 @@
   #profile-options .profile-child:hover {
     cursor: pointer; }
 
-#display-container {
-  width: 60%;
-  margin: 30px auto; }
+#display-container #post-display-container {
+  width: 500px;
+  margin: 80px auto; }
+  #display-container #post-display-container #post-list-container .card {
+    width: 450px; }
 
 #display-container > div {
   display: none; }
+
+#post-display-container > h2 {
+  text-align: center; }
