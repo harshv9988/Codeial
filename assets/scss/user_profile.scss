@@ -41,3 +41,19 @@ body{
     }
 }
 
+#profile-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    .profile-child{
+        width: 150px;
+        height: 100px;
+        text-align: center;
+        border: 1px solid #2405d347;
+        padding-top: 5px;
+        border-radius: 15px;
+        box-shadow: 3px 3px 10px #090909;
+    }
+}
+
