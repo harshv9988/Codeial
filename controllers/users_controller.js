@@ -21,11 +21,13 @@ module.exports.profile = async function(req,res){
     
         let user = await User.find({});
     
-        let signInUserFriends;
-        if(req.user){
-         signInUserFriends = await User.findById(req.user._id)
-         .populate('friendship', 'name email avatar');
-        }
+        // let signInUserFriends;
+        // if(req.user){
+        //  signInUserFriends = await User.findById(req.user._id)
+        //  .populate('friendship', 'name email avatar');
+        // }
+
+        let signInUserFriends = await User.find({ friendship: req.params.id }).populate('friendship', 'name email avatar');
     
         let signin_User = await User.findById(req.params.id);
     
