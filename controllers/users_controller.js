@@ -6,7 +6,7 @@ const path = require('path');
 module.exports.profile = async function(req,res){
 
     try{
-        let post = await Post.find({})
+        let post = await Post.find({user: req.params.id})
         .sort('-createdAt')
         .populate('user')
         .populate({
