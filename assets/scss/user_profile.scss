@@ -42,6 +42,7 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 20px;
+
     .profile-child{
         width: 150px;
         height: 100px;
@@ -50,10 +51,13 @@
         padding-top: 5px;
         border-radius: 15px;
         box-shadow: 3px 3px 10px #090909;
+        color: #20bbbb;
     }
 
     .profile-child:hover{
         cursor: pointer;
+        background-color:  #20bbbb;
+        color: white;
     }
 }
 
@@ -72,12 +76,13 @@
         }
     }
 
-    #friend-display-container{
-        width: 500px;
+    #friend-display-container, #alluser-display-container{
+        width: 410px;
         margin: 80px auto;
         border: 1px dashed black;
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
+        background-color: #b0cbd1;
 
         .profile-info{
             display: flex;
@@ -87,13 +92,21 @@
 
         .list-group-item{
             margin: 0px;
-            text-align: center;
             padding:7px 20px;
+
+            .child-one{
+                width: 25%;
+                
+            }
+
+            .child-two{
+                width: 75%;
+            }
 
             .profile-pic-holder{
                 width: 55px;
                 height: 55px;
-                margin: 0px 5px;
+                margin: 0px auto;
         
                 img{
                     width: 100%;
@@ -106,6 +119,7 @@
             .profile-name-holder{
                 margin: 0px;
                 padding-top: 10px;
+                text-align: left;
 
                 a{
                     text-decoration: none;
@@ -128,7 +142,7 @@
     text-align: center;
 }
 
-#friend-display-container > h2{
+#friend-display-container,#alluser-display-container > h2{
     text-align: center;
 }
 
