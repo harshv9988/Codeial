@@ -4,6 +4,9 @@
        <div id="links">
         <%if(locals.user){%>
             <div class="text">
+                <a href="/messages/chats"><i class="far fa-comments"></i></a>
+            </div>
+            <div class="text">
                 <a href="/users/profile/<%=locals.user._id%>"><%=locals.user.name%></a>
             </div>    
             <div class="text">

@@ -15,8 +15,8 @@ header{
             display: flex;
             flex-direction: row;
             justify-content: center;
-            margin: 20px;
-            margin-right: 50px;
+            margin: 15px;
+            margin-right: 20px;
 
             .text{
                 margin-left: 25px;
@@ -37,4 +37,40 @@ header{
         }
     }
 
+}
+
+@media only screen and (max-width:400px){
+    header{
+        #flex-header{
+            #links{
+                .text{
+                    a{
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            #site-name{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:340px){
+    header{
+        #flex-header{
+            #links{
+                .text{
+                    a{
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            #site-name{
+                font-size: 1rem;
+            }
+        }
+    }
 }

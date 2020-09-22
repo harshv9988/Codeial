@@ -19,9 +19,27 @@
            
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Edit Profile
-              </button>
-              
+              </button> 
         <%}%>    
+
+        <%if(!locals.user.friendship.find(x => x.toString() === profile_user.id) && (locals.user.id != profile_user.id)){%>
+            <a href="/friends/create/?toid=<%=profile_user._id%>">
+                <button type="button" class="btn btn-primary">
+                    Make Friend
+                </button>
+            </a>
+        <%}%>
+
+       
+        <%if(locals.user.friendship.find(x => x.toString() === profile_user.id)){%>
+           
+                    <a href="/friends/destroy/?toid=<%=profile_user._id%>">
+                        <button type="button" class="btn btn-danger">
+                            Delete Friend
+                        </button>
+                    </a>
+                   
+        <%}%>
     </div>
       
       <!-- Modal -->
@@ -143,36 +161,6 @@
 
 </div>
 
-
-<div id="main-container">
-
-   
-    
-    <%if(locals.user && locals.user.id!=profile_user.id){%>
-        <div>
-            <p>
-                <a href="/friends/create/?toid=<%=profile_user._id%>">
-                    Make Friend
-                </a>
-            </p>
-        </div>      
-    <%}%>
-    
-    <%if(locals.user && locals.user.id!=profile_user.id){%>
-        <div>
-            <p>
-                <a href="/friends/destroy/?toid=<%=profile_user._id%>">
-                    Delete Friend
-                </a>
-            </p>
-        </div>      
-    <%}%>
-    
-</div>
-
-<div>
-    <a href="/messages/chats">Go to chats</a>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
