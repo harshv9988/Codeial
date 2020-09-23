@@ -49,14 +49,31 @@ class ChatEngine{
                 messageType = 'self-message';
             }
 
-            newMessage.append($('<span>', {
-                'html': data.message
-            }));
+            if(messageType=='self-mssage'){
+                newMessage.append(`
+                    <div>
+                        <h3> ${data.message} </h3>
+                        <h4> ${data.user_email} </h4>
+                    </div>
+                `);
+            }
+            else{
+                newMessage.append(`
+                <div>
+                    <h3> ${data.message} </h3>
+                    <h4> ${data.user_email} </h4>
+                </div>
+            `);
+            }
+
+            // newMessage.append($('<span>', {
+            //     'html': data.message
+            // }));
 
 
-            newMessage.append($('<sub>', {
-                'html': data.user_email
-            }));
+            // newMessage.append($('<sub>', {
+            //     'html': data.user_email
+            // }));
 
             newMessage.addClass(messageType);
 

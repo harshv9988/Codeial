@@ -53,10 +53,22 @@ input:focus{                 /* Removing outlines from all input tags*/
 				.other-message{
 					text-align: left;
 					padding: 5px;
-					span{
+					div{
 						display: inline-block;
 						padding: 15px;
 						background-color: #ffa0a0;
+						border-radius: 15%;
+
+						h3{
+							margin: 0px;
+    						text-align: left;
+						}
+
+						h4{
+							margin: 0px;
+    						font-size: 0.8rem;
+    						text-align: right;
+						}
 					}
 					
 				}
@@ -65,11 +77,23 @@ input:focus{                 /* Removing outlines from all input tags*/
 					text-align: right;
 					padding: 5px;
 				   
-					span{
+					div{
 						 
 						display: inline-block;
 						padding: 15px;
 						background-color: #a0dcff;
+						border-radius: 15%;
+
+						h3{
+							margin: 0px;
+    						text-align: left;
+						}
+
+						h4{
+							margin: 0px;
+    						font-size: 0.8rem;
+    						text-align: right;
+						}
 					}
 				   
 				}

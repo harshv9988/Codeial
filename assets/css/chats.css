@@ -38,17 +38,33 @@ input:focus {
         #chat-flex #chat-room-display #user-chat-box #chat-messages-list .other-message {
           text-align: left;
           padding: 5px; }
-          #chat-flex #chat-room-display #user-chat-box #chat-messages-list .other-message span {
+          #chat-flex #chat-room-display #user-chat-box #chat-messages-list .other-message div {
             display: inline-block;
             padding: 15px;
-            background-color: #ffa0a0; }
+            background-color: #ffa0a0;
+            border-radius: 15%; }
+            #chat-flex #chat-room-display #user-chat-box #chat-messages-list .other-message div h3 {
+              margin: 0px;
+              text-align: left; }
+            #chat-flex #chat-room-display #user-chat-box #chat-messages-list .other-message div h4 {
+              margin: 0px;
+              font-size: 0.8rem;
+              text-align: right; }
         #chat-flex #chat-room-display #user-chat-box #chat-messages-list .self-message {
           text-align: right;
           padding: 5px; }
-          #chat-flex #chat-room-display #user-chat-box #chat-messages-list .self-message span {
+          #chat-flex #chat-room-display #user-chat-box #chat-messages-list .self-message div {
             display: inline-block;
             padding: 15px;
-            background-color: #a0dcff; }
+            background-color: #a0dcff;
+            border-radius: 15%; }
+            #chat-flex #chat-room-display #user-chat-box #chat-messages-list .self-message div h3 {
+              margin: 0px;
+              text-align: left; }
+            #chat-flex #chat-room-display #user-chat-box #chat-messages-list .self-message div h4 {
+              margin: 0px;
+              font-size: 0.8rem;
+              text-align: right; }
       #chat-flex #chat-room-display #user-chat-box #chat-message-input-container {
         height: 21%;
         width: 100%;
