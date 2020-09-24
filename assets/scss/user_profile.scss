@@ -17,12 +17,19 @@
         }
     }
 
+    #user-dashboard-name{
+        height: 35px;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
     #edit-profile{
         width: 300px;
         margin: auto;
         text-align: center;
         margin-top: 10px;
         font-size: x-small;
+        height: 50px;
     }
 
     #preview-holder{
@@ -152,6 +159,10 @@
     #display-container{
         // width: 500px;
         // margin: 80px auto;
+
+        #friend-display-container, #alluser-display-container{
+            width: 350px;
+        }
     
         #post-display-container{
             width: 390px;
@@ -184,6 +195,10 @@
 @media only screen and (max-width:380px){
 
     #display-container{
+
+        #friend-display-container, #alluser-display-container{
+            width: 310px;
+        }
        
         #post-display-container{
             width: 354px;
@@ -215,7 +230,10 @@
 @media only screen and (max-width:340px){
 
     #display-container{
-       
+
+        #friend-display-container, #alluser-display-container{
+            width: 300px;
+        }
         #post-display-container{
             
             width: 304px;
