@@ -19,16 +19,18 @@
                     </p>
                 </h4>
             </div>
-            <div class="dropdown">
-                <a class="dropdown-toggle" type="button" id="dropdownMenuButton-<%=i._id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-<%=i._id %>">
-                    <%if(locals.user && locals.user.id==i.user.id){%>  
-                        <a class="delete-post-button dropdown-item" href="/posts/destroy/<%=i._id %>">Delete</a>
-                    <%}%>
-                </div>
-            </div>
+            <%if(locals.user.id==i.user.id){%>
+                <div class="dropdown dropleft">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton-<%=i._id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-<%=i._id %>">
+                        <%if(locals.user && locals.user.id==i.user.id){%>  
+                            <a class="delete-post-button dropdown-item" href="/posts/destroy/<%=i._id %>">Delete</a>
+                        <%}%>
+                    </div>
+                </div>    
+            <%}%>
         </div>
     </div>
     <div class="card-body">

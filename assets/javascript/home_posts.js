@@ -45,15 +45,20 @@
           <div class="d-flex flex-row justify-content-between">
               <div class="d-flex flex-row profile-info">
                   <h3 class="profile-pic-holder" style="width: 55px; height: 55px; margin: 0px 5px;">
+
+                  ${post.user.avatar ? `<img src="${post.user.avatar}" alt="image" style = "width: 100%;height: 100%; border-radius: 50px;"alt="image">` 
+                    : `<img src="/images/codeial-default-avatar2.png" style = "width: 100%;height: 100%; border-radius: 50px;" alt="image">`
+                }
                       
-                          <img src="${post.user.avatar}" alt="image" style = "width: 100%;height: 100%; border-radius: 50px;"alt="image">
+                          
                       
                   </h3>
                   <h4 class="text-capitalize profile-name-holder">
                       ${post.user.name}
                   </h4>
               </div>
-              <div class="dropdown">
+              
+              <div class="dropdown dropleft">
                   <a class="dropdown-toggle" type="button" id="dropdownMenuButton-${post._id}"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v"></i>
                   </a>

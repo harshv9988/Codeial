@@ -52,14 +52,18 @@ class postComments{
         <li id="comment-${comment._id}">
         <div class="media m-2 border-bottom">
             <h3 class="profile-pic-holder" style="width: 55px; height: 55px; margin: 0px 5px;">
+
+                ${comment.user.avatar ? `<img src="${comment.user.avatar}" alt="image"  style = "width: 100%;height: 100%; border-radius: 50px;">`
+                    :`<img src="/images/codeial-default-avatar2.png" style = "width: 100%;height: 100%; border-radius: 50px;" alt="image">`
+                }
                 
-                    <img src="${comment.user.avatar}" alt="image"  style = "width: 100%;height: 100%; border-radius: 50px;">
+                   
                 
             </h3>
     
     
             <div class="media-body">
-                <div class="d-flex flex-row justify-content-between" style="height: 22px; width: 100px;">
+                <div class="d-flex flex-row justify-content-between" style="height: 22px; width: 150px;">
                     <div class="comment-user-name">
                         <h5 class="mt-0" style = " font-size: medium;text-transform: capitalize;">${comment.user.name}</h5>
                     </div>
