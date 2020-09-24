@@ -96,3 +96,33 @@
 
 #friend-display-container, #alluser-display-container > h2 {
   text-align: center; }
+
+@media only screen and (max-width: 430px) {
+  #display-container #post-display-container {
+    width: 390px;
+    margin: 80px auto; }
+    #display-container #post-display-container #post-list-container .card {
+      width: 350px; }
+  #profile-options .profile-child {
+    width: 100px;
+    height: 100px; }
+    #profile-options .profile-child h4, #profile-options .profile-child h3 {
+      font-size: 1.4rem; } }
+
+@media only screen and (max-width: 380px) {
+  #display-container #post-display-container {
+    width: 350px;
+    margin: 80px auto; }
+    #display-container #post-display-container #post-list-container .card {
+      width: 300px; }
+  #profile-options .profile-child {
+    width: 80px;
+    height: 80px; }
+    #profile-options .profile-child h4, #profile-options .profile-child h3 {
+      font-size: 1rem; } }
+
+@media only screen and (max-width: 340px) {
+  #display-container #post-display-container {
+    width: 304px; }
+    #display-container #post-display-container #post-list-container .card {
+      width: 260px; } }
