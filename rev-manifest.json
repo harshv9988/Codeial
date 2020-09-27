@@ -1,0 +1,22 @@
+{
+  "images/Mail.svg": "images/Mail-490b3c3393.svg",
+  "images/back-1.jpg": "images/back-1-218a72a938.jpg",
+  "images/card-1.jpg": "images/card-1-e0c17477bd.jpg",
+  "images/card-2.jpg": "images/card-2-7efecca531.jpg",
+  "images/card-3.jpg": "images/card-3-4a063fe884.jpg",
+  "images/card-4.png": "images/card-4-04b85aafa4.png",
+  "images/card-5.jpg": "images/card-5-0ef8d8c05a.jpg",
+  "images/carousel-1.jpg": "images/carousel-1-d163552ddc.jpg",
+  "images/carousel-2.png": "images/carousel-2-c16a173bcc.png",
+  "images/carousel-3.png": "images/carousel-3-021ae1af10.png",
+  "images/codeial-default-avatar.jpg": "images/codeial-default-avatar-256965b061.jpg",
+  "images/codeial-default-avatar2.png": "images/codeial-default-avatar2-8bc10ee41e.png",
+  "images/favicon.svg": "images/favicon-ec7f5b6f96.svg",
+  "images/like.png": "images/like-4113758d1a.png",
+  "images/no_profile.jpg": "images/no_profile-b3e3fdee20.jpg",
+  "images/welcome.svg": "images/welcome-4d9b328831.svg",
+  "javascript/chat_engine.js": "javascript/chat_engine-71b1a2de7e.js",
+  "javascript/home_post_comments.js": "javascript/home_post_comments-37ea3931b7.js",
+  "javascript/home_posts.js": "javascript/home_posts-a0b9320212.js",
+  "javascript/toggle_likes.js": "javascript/toggle_likes-eaa59f6014.js"
+}
