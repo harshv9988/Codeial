@@ -3,6 +3,7 @@ const app = express();
 const port = 8000;
 
 const env = require('./config/environment');
+const logger = require('morgan');
 const path = require('path');
 
 //importing cookie parser
@@ -61,6 +62,9 @@ app.use('/uploads',express.static(__dirname + '/uploads'));
                         //or
 // app.use('/uploads',express.static('./uploads'));
 // app.use('/uploads',express.static(path.join(__dirname , '/uploads')));
+
+//morga use for production
+app.use(logger(env.morgan.mode,env.morgan.options));
 
 //using expressLayouts
 app.use(expressLayouts);
