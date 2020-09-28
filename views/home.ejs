@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
 
 
 <%if(locals.user){%>
@@ -14,7 +14,7 @@
                             <%if(locals.user.avatar){%>
                                 <img src="<%=locals.user.avatar%>" alt="image">
                             <%}else{%>
-                                <img src="/images/codeial-default-avatar2.png" alt="image">
+                                <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
                             <%}%>
                         </div>
                         <div class="card-body">
@@ -72,7 +72,7 @@
                                 <%if(u.avatar){%>
                                     <img src="<%=u.avatar%>" alt="image">
                                 <%}else{%>
-                                    <img src="/images/codeial-default-avatar2.png" alt="image">
+                                    <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
                                 <%}%>
                                 
                             </h3>
@@ -92,7 +92,7 @@
                                     <%if(friends.avatar){%>
                                         <img src="<%=friends.avatar%>" alt="image">
                                     <%}else{%>
-                                        <img src="/images/codeial-default-avatar2.png" alt="image">
+                                        <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
                                     <%}%>
                                 </h3>  
                                 <p class="profile-name-holder">
@@ -117,21 +117,21 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active h-100">
-              <img src="/images/carousel-1.jpg" class="d-block w-100 h-100" alt="...">
+              <img src="<%= assetPath('images/carousel-1.jpg') %>" class="d-block w-100 h-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 
                 <p>A PLACE WHERE YOU CAN SOCIALISE WITH DEVELOPERS AROUND THE WORLD.</p>
               </div>
             </div>
             <div class="carousel-item h-100">
-              <img src="/images/carousel-2.png" class="d-block w-100 h-100" alt="...">
+              <img src="<%= assetPath('images/carousel-2.png') %>" class="d-block w-100 h-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 
                 <p id="color-change"> A PLACE WHERE YOU CAN DISCUSS YOUR CODE WITH OTHERS.</p>
               </div>
             </div>
             <div class="carousel-item h-100">
-              <img src="/images/carousel-3.png" class="d-block w-100 h-100" alt="...">
+              <img src="<%= assetPath('images/carousel-3.png') %>" class="d-block w-100 h-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 
                 <p>A PLACE WHERE YOU CAN HELP OTHERS BY SOLVING THEIR QUERIES.</p>
@@ -150,35 +150,35 @@
   
         <div id="flexbox">
           <div class="card m-5" style="width: 18rem;">
-              <img class="card-img-top" src="/images/card-1.jpg" alt="Card image cap">
+              <img class="card-img-top" src="<%= assetPath('images/card-1.jpg') %>" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-name">Rachael</h4>
                 <p class="card-text">Tech Enthusiast working as a Freelancer want to learn from others having expertise in this field.</p>
               </div>
             </div>
             <div class="card m-5" style="width: 18rem;">
-              <img class="card-img-top" src="/images/card-2.jpg" alt="Card image cap">
+              <img class="card-img-top" src="<%= assetPath('images/card-2.jpg') %>" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-name">Bryan</h4>
                 <p class="card-text">Working as a Software Developer in a tech giant find it a good place to socialise with developers around the globe.</p>
               </div>
             </div>
             <div class="card m-5" style="width: 18rem;">
-              <img class="card-img-top" src="/images/card-3.jpg" alt="Card image cap">
+              <img class="card-img-top" src="<%= assetPath('images/card-3.jpg') %>" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-name">Aaron Paul</h4>
                 <p class="card-text">Newbie in the world of programming want to learn from experienced in this field.</p>
               </div>
             </div>
             <div class="card m-5" style="width: 18rem;">
-              <img class="card-img-top" src="/images/card-4.png" alt="Card image cap">
+              <img class="card-img-top" src="<%= assetPath('images/card-4.png') %>" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-name">Hannah</h4>
                 <p class="card-text">Want to learn Want to adapt this new world of technology.</p>
               </div>
             </div>
             <div class="card m-5" style="width: 18rem;">
-              <img class="card-img-top" src="/images/card-5.jpg" alt="Card image cap">
+              <img class="card-img-top" src="<%= assetPath('images/card-5.jpg') %>" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-name">Dean Norris</h4>
                 <p class="card-text">Want to start learning new technologies.</p>
@@ -211,9 +211,9 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 
-<script src="/javascript/home_post_comments.js"></script>
-<script src="/javascript/home_posts.js"></script>
-<script src="/javascript/toggle_likes.js"></script>
+<script src="<%= assetPath('javascript/home_post_comments.js') %>"></script>
+<script src="<%= assetPath('javascript/home_posts.js') %>"></script>
+<script src="<%= assetPath('javascript/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;

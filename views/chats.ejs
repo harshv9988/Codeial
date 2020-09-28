@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/chats.css">
+<link rel="stylesheet" href="<%= assetPath('css/chats.css') %>">
 
 
 
@@ -39,7 +39,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-<script src="/javascript/chat_engine.js"></script>
+<script src="<%= assetPath('javascript/chat_engine.js') %>"></script>
 
 <%if(locals.user){%>
     

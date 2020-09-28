@@ -4,6 +4,10 @@ const port = 8000;
 
 const env = require('./config/environment');
 const logger = require('morgan');
+
+//for view-helper
+require('./config/view-helper')(app);
+
 const path = require('path');
 
 //importing cookie parser
