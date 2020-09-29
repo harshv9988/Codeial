@@ -53,7 +53,7 @@ app.use(sassMiddleware({
 }));
 
 //middleware for form parser
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : false}));
 
 //middleware for cookie parser install cookie-parser for this
 app.use(cookieParser());
