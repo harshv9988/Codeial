@@ -54,7 +54,7 @@ const production = {
     },
     google_client_id : process.env.SOCIALARRAY_GOOGLE_CLIENT_ID,
     google_client_secret : process.env.SOCIALARRAY_GOOGLE_CLIENT_SECRET,
-    google_call_back_url : process.env.SOCIALARRAY_GOOGLE_CALLACK_URL,
+    google_call_back_url : "http://socialarray.co.in/users/auth/google/callback",
     jwt_secret : process.env.SOCIALARRAY_JWT_SECRET,
     morgan : {
         mode : 'combined',
