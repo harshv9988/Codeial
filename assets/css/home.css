@@ -1,6 +1,9 @@
 .right-text {
   text-align: right; }
 
+body {
+  background-color: #eeeeee; }
+
 #home-flex {
   display: flex;
   flex-direction: row;
