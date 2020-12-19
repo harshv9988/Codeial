@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Chatroom = require('../models/chatroom');
 
 module.exports.userChats = async function(req,res){
 
@@ -26,15 +27,40 @@ module.exports.chatRoom = async function(req,res){
 
    try{
        if(req.xhr){
+
+        let user = await User.findById(req.user._id).select('name email avatar');
+        
+        let friend = await User.findById(req.query.friend).select('name email avatar');
+        
+        let chatRoom;
+
+        chatRoom = await Chatroom.findOne({user1:user._id, user2:friend._id});
+        if(chatRoom==undefined){
+            chatRoom = await Chatroom.findOne({user1:friend._id, user2:user._id});
+        }
+
+        if(chatRoom==undefined){
+            chatRoom = await Chatroom.create({
+                user1 : user._id,
+                user2 : friend._id,
+            })
+        }
+
         return res.status(200).json({
             data: {
+                chatRoom,
+                friend,
+                user,
             },
-            message: "SUCCESS h bhai"
+            message: "SUCCESS"
          }); 
        }
+       else{
+        return res.redirect('back');
+     }
 
    }catch(err){
-    console.log('ERROR',err);
+    console.log('ERROR Bhai',err);
     return;
    }
 
