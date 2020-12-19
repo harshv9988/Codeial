@@ -6,35 +6,15 @@
       <h2>Chat Room</h2>
     </div>
     <div id="roomlist">
-      <h2
-        class="chats"
-        data-roomid="codeial1"
-        data-userid="<%=locals.user.email%>"
-      >
-        room1
-      </h2>
-      <h2
-        class="chats"
-        data-roomid="codeial2"
-        data-userid="<%=locals.user.email%>"
-      >
-        room2
-      </h2>
+      <%for(friend of friends.friendship){%>
+        <div class="chat-list" id="friend-<%=friend._id%>" data-friendId="<%=friend._id%>">
+          <%=friend.name%>
+        </div>  
+      <%}%>
     </div>
   </div>
 
   <div class="chat-flex-child chat-room-display" id="chat-room-display1">
-    <div class="user-chat-box">
-      <ul class="chat-messages-list"></ul>
-      <div class="chat-message-input-container">
-        <input class="chat-message-input" placeholder="Type message here" />
-        <button class="send-message">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="chat-flex-child chat-room-display" id="chat-room-display2">
     <div class="user-chat-box">
       <ul class="chat-messages-list"></ul>
       <div class="chat-message-input-container">
