@@ -8,23 +8,27 @@ input:focus {
 
 #chat-flex {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  margin: 14px;
+  border: 1px solid #c4c4c4; }
   #chat-flex .chat-flex-child {
     height: 78vh; }
+  #chat-flex #chat-room-name::-webkit-scrollbar {
+    display: none; }
   #chat-flex #chat-room-name {
     width: 30%;
-    border: 1px solid black; }
+    border-right: 1px solid #c4c4c4;
+    overflow-y: scroll; }
     #chat-flex #chat-room-name .chat-room-users {
-      height: 38px;
       text-align: center;
-      border-bottom: 1px solid; }
+      border-bottom: 1px solid #c4c4c4; }
       #chat-flex #chat-room-name .chat-room-users h2 {
-        margin: 0px; }
+        margin-top: 15px; }
     #chat-flex #chat-room-name #roomlist .chat-list:hover {
       background-color: #d1d1d1; }
     #chat-flex #chat-room-name #roomlist .chat-list {
       padding: 0px 25px;
-      border-bottom: 1px solid;
+      border-bottom: 1px solid #c4c4c4;
       cursor: pointer; }
       #chat-flex #chat-room-name #roomlist .chat-list .friend-wrapper {
         display: flex;
@@ -41,14 +45,15 @@ input:focus {
         #chat-flex #chat-room-name #roomlist .chat-list .friend-wrapper .friend-name {
           padding-left: 12px; }
   #chat-flex .chat-room-display {
-    width: 70%; }
+    width: 70%;
+    background: white; }
     #chat-flex .chat-room-display .user-chat-box {
       position: relative;
-      border: 1px solid grey;
-      width: 90%;
+      width: 99%;
       height: 98%;
-      background: white;
       padding: 5px; }
+      #chat-flex .chat-room-display .user-chat-box .chat-messages-list-style::-webkit-scrollbar {
+        display: none; }
       #chat-flex .chat-room-display .user-chat-box .chat-messages-list-style {
         list-style: none;
         padding: 10px;
@@ -90,7 +95,7 @@ input:focus {
         width: 100%;
         display: flex;
         flex-direction: row;
-        border-top: 1px solid black;
+        border-top: 1px solid #c4c4c4;
         margin-top: 78px; }
         #chat-flex .chat-room-display .user-chat-box .chat-message-input-container .chat-message-input {
           height: 50%;

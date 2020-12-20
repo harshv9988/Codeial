@@ -11,22 +11,27 @@ input:focus {
 #chat-flex {
   display: flex;
   flex-direction: row;
+  margin: 14px;
+  border: 1px solid #c4c4c4;
 
   .chat-flex-child {
-    // border: 1px solid black;
     height: 78vh;
+  }
+
+  #chat-room-name::-webkit-scrollbar {
+    display: none;
   }
 
   #chat-room-name {
     width: 30%;
-    border: 1px solid black;
+    border-right: 1px solid #c4c4c4;
+    overflow-y: scroll;
     .chat-room-users {
-      // background-color: wheat;
-      height: 38px;
+      // height: 38px;
       text-align: center;
-      border-bottom: 1px solid;
+      border-bottom: 1px solid #c4c4c4;
       h2 {
-        margin: 0px;
+        margin-top: 15px;
       }
     }
 
@@ -37,7 +42,7 @@ input:focus {
       .chat-list {
         // height: 54px;
         padding: 0px 25px;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid #c4c4c4;
         cursor: pointer;
         // width: 100%;
         .friend-wrapper {
@@ -65,18 +70,18 @@ input:focus {
 
   .chat-room-display {
     width: 70%;
+    background: white;
 
     .user-chat-box {
       position: relative;
-      // margin: auto;
-      border: 1px solid grey;
-      // height: 350px;
-      // width: 300px;
-      width: 90%;
+
+      width: 99%;
       height: 98%;
-      background: white;
       padding: 5px;
-      // box-shadow: 1px 1px 1px 1px lightgrey;
+
+      .chat-messages-list-style::-webkit-scrollbar {
+        display: none;
+      }
 
       .chat-messages-list-style {
         list-style: none;
@@ -135,7 +140,7 @@ input:focus {
         width: 100%;
         display: flex;
         flex-direction: row;
-        border-top: 1px solid black;
+        border-top: 1px solid #c4c4c4;
         margin-top: 78px;
         // padding-top: 50px;
 
