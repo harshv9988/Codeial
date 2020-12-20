@@ -12,7 +12,19 @@
         id="friend-<%=friend._id%>"
         data-friendId="<%=friend._id%>"
       >
-        <%=friend.name%>
+        <div class="friend-wrapper">
+          <div class="friend-avatar">
+            <%if(friend.avatar){%>
+            <img src="<%=friend.avatar%>" />
+            <%}else{%>
+            <img
+              src="<%= assetPath('images/codeial-default-avatar2.png') %>"
+              alt="image"
+            />
+            <%}%>
+          </div>
+          <div class="friend-name"><%=friend.name%></div>
+        </div>
       </div>
       <%}%>
     </div>

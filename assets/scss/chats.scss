@@ -21,11 +21,44 @@ input:focus {
     width: 30%;
     border: 1px solid black;
     .chat-room-users {
-      background-color: wheat;
-      height: 50px;
+      // background-color: wheat;
+      height: 38px;
       text-align: center;
+      border-bottom: 1px solid;
       h2 {
         margin: 0px;
+      }
+    }
+
+    #roomlist {
+      .chat-list:hover {
+        background-color: #d1d1d1;
+      }
+      .chat-list {
+        // height: 54px;
+        padding: 0px 25px;
+        border-bottom: 1px solid;
+        cursor: pointer;
+        // width: 100%;
+        .friend-wrapper {
+          display: flex;
+          flex-wrap: nowrap;
+          padding: 18px;
+          align-items: center;
+          .friend-avatar {
+            width: 45px;
+            height: 45px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          .friend-name {
+            padding-left: 12px;
+          }
+        }
       }
     }
   }
