@@ -7,16 +7,18 @@
     </div>
     <div id="roomlist">
       <%for(friend of friends.friendship){%>
-        <div class="chat-list" id="friend-<%=friend._id%>" data-friendId="<%=friend._id%>">
-          <%=friend.name%>
-        </div>  
+      <div
+        class="chat-list"
+        id="friend-<%=friend._id%>"
+        data-friendId="<%=friend._id%>"
+      >
+        <%=friend.name%>
+      </div>
       <%}%>
     </div>
   </div>
 
-  <div class="chat-flex-child chat-room-display">
-   
-  </div>
+  <div class="chat-flex-child chat-room-display"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>

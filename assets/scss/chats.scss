@@ -8,11 +8,6 @@ input:focus {
   outline: none;
 }
 
-#chat-room-display1,
-#chat-room-display2 {
-  display: none;
-}
-
 #chat-flex {
   display: flex;
   flex-direction: row;
@@ -50,7 +45,7 @@ input:focus {
       padding: 5px;
       // box-shadow: 1px 1px 1px 1px lightgrey;
 
-      .chat-messages-list {
+      .chat-messages-list-style {
         list-style: none;
         padding: 10px;
         height: 70%;
@@ -117,7 +112,7 @@ input:focus {
           border: none;
         }
 
-        .send-message {
+        #send-message {
           height: 50%;
           width: 30%;
           font-size: 25px;

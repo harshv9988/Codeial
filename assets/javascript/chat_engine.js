@@ -1,4 +1,4 @@
-let chatArea = $('.chat-room-display');
+let chatArea = $(".chat-room-display");
 let selfUser;
 let userMail;
 let otherUser;
@@ -10,86 +10,133 @@ socket.on("connect", function () {
   console.log("connection established using sockets...!");
 });
 
+function joinRoom() {
+  socket.emit("join_room", {
+    user_email: userMail,
+    chatroom: currentChatRoom,
+  });
 
-function joinRoom(){
-    socket.emit('join_room',{
-      user_email : userMail,
-      chatroom : currentChatRoom
-    });
-
-    socket.on('user_joined',function(data){
-      console.log('New User Joined',data);
+  socket.on("user_joined", function (data) {
+    console.log("New User Joined", data);
   });
 }
 
+var sendMessage = () => {
+  function activateMessageSending() {
+    console.log("aa gya");
+    let inputBox = $(".chat-message-input");
+    let msg = inputBox.val();
 
-function activateMessageSending(){
+    if (msg != "") {
+      socket.emit("send_message", {
+        message: msg,
+        user_id: selfUser._id,
+        user_email: userMail,
+        chatroom: currentChatRoom,
+      });
 
-  let inputBox = $('.chat-message-input');
-  let msg = inputBox.val();
+      inputBox.val("");
+    }
+  }
 
-  if(msg!=''){
-    socket.emit('send_message',{
-        message : msg,
-        user_id : selfUser._id,
-        user_email : userMail,
-        chatroom : currentChatRoom
-    });
+  $("#send-message").click(activateMessageSending); // click action
+};
 
-    inputBox.val('.send-message').click();
-}
-
-
-}
-
-function connectRoom(){
-  if(!roomList.includes(currentChatRoom)){
+function connectRoom() {
+  if (!roomList.includes(currentChatRoom)) {
     joinRoom();
     roomList.push(currentChatRoom);
   }
+
+  sendMessage();
 }
 
-$('.send-message').click(activateMessageSending);
+socket.on("receive_message", function (data) {
+  let messageList = $(`#chat-messages-list-${currentChatRoom}`);
+  let messageType = "other";
 
-function createArea(){
+  if (data.user_email === userMail) {
+    messageType = "self";
+  }
+
+  if (messageType === "self") {
+    messageList.append(
+      ` <li class="self-message">
+        <div>                        
+          <h3> ${data.message} </h3>                    
+         </div>
+      </li>
+      `
+    );
+  } else {
+    messageList.append(`
+      <li class="other-message">
+        <div>                        
+          <h3> ${data.message} </h3>                    
+         </div>
+      </li>
+    `);
+  }
+});
+
+function createArea(chatRoom, friend, user) {
+  console.log(chatRoom);
   return ` <div class="user-chat-box">
-            <ul class="chat-messages-list"></ul>
-            <div class="chat-message-input-container">
-                <input class="chat-message-input" placeholder="Type message here" />
-                <button class="send-message">
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-          </div>`
+      <ul id="chat-messages-list-${
+        chatRoom._id
+      }" class = "chat-messages-list-style">
+        ${chatRoom.messages
+          .map((chat) => {
+            return `${
+              user._id === chat.user
+                ? `<li class="self-message">
+                  <div>                        
+                    <h3> ${chat.message} </h3>                    
+                  </div>
+                 </li>`
+                : `<li class="other-message">
+                  <div>                        
+                    <h3> ${chat.message} </h3>                    
+                  </div>
+                 </li>`
+            }`;
+          })
+          .join("")}
+      </ul>
+      <div class="chat-message-input-container">
+          <input class="chat-message-input" placeholder="Type message here" />
+          <button id="send-message">
+           <i class="fas fa-paper-plane"></i>
+          </button>
+      </div>
+    </div> `;
 }
-
 
 $(".chat-list").each(function () {
   $(this).click(function () {
-   const friendId =  $(this).attr('data-friendId');
+    const friendId = $(this).attr("data-friendId");
 
-   $.ajax({
-     type : 'GET',
-     url : `/messages/chatroom?friend=${friendId}`,
+    $.ajax({
+      type: "GET",
+      url: `/messages/chatroom?friend=${friendId}`,
 
-     success : function(data){
-       let {chatRoom, friend, user} = data.data;
-       let room = createArea();
-       chatArea.empty();
-       chatArea.append(room);
+      success: function (data) {
+        let { chatRoom, friend, user } = data.data;
+        let room = createArea(chatRoom, friend, user);
+        chatArea.empty();
+        chatArea.append(room);
 
-      selfUser = user;
-      otherUser = friend;
-      currentChatRoom = chatRoom._id;
-      userMail = user.email;
+        selfUser = user;
+        otherUser = friend;
+        currentChatRoom = chatRoom._id;
+        userMail = user.email;
 
-      connectRoom();
-
-     },
-     error: function (error) {
-      console.log(error.responseText)
-    },
-   })
+        connectRoom();
+      },
+      error: function (error) {
+        console.log(error.responseText);
+      },
+    });
   });
 });
 
