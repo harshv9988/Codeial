@@ -197,89 +197,15 @@ input:focus {
   }
 }
 
-@media only screen and (max-width: 930px) {
-  #chat-flex {
-    // margin: auto;
-    #chat-room-name {
-      display: none;
-    }
-
-    .chat-room-display {
-      margin: auto;
-      width: 90%;
-
-      .user-chat-box {
-        margin: auto;
-      }
-    }
-  }
-}
-
 @media only screen and (max-width: 430px) {
   #chat-flex {
-    // margin: auto;
-    #chat-room-name {
+    .chat-room-display {
       display: none;
     }
 
-    .chat-room-display {
-      width: 90%;
-
-      .user-chat-box {
-        .chat-messages-list {
-          .other-message {
-            div {
-              padding: 5px;
-            }
-
-            h3 {
-              font-size: 1rem;
-            }
-
-            h4 {
-              font-size: 0.7rem;
-            }
-          }
-
-          .self-message {
-            div {
-              padding: 5px;
-            }
-
-            h3 {
-              font-size: 1rem;
-            }
-
-            h4 {
-              font-size: 0.7rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 380px) {
-  #chat-flex {
-    .chat-room-display {
-      .user-chat-box {
-        .chat-message-input-container {
-          margin-top: 65px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  #chat-flex {
-    .chat-room-display {
-      .user-chat-box {
-        .chat-message-input-container {
-          margin-top: 50px;
-        }
-      }
+    #chat-room-name {
+      width: 100%;
+      border-right: none;
     }
   }
 }
