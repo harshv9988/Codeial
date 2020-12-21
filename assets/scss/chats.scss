@@ -23,6 +23,7 @@ input:focus {
   }
 
   #chat-room-name {
+    display: block;
     width: 30%;
     border-right: 1px solid #c4c4c4;
     overflow-y: scroll;
@@ -86,6 +87,10 @@ input:focus {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
+
+        .back-button {
+          display: none;
+        }
 
         .header-avatar {
           height: 50px;
@@ -175,6 +180,7 @@ input:focus {
         display: flex;
         flex-direction: row;
         border-top: 1px solid #c4c4c4;
+        background-color: aquamarine;
         // margin-top: 78px;
         // padding-top: 50px;
 
@@ -197,10 +203,33 @@ input:focus {
   }
 }
 
+@media only screen and (min-width: 430px) {
+  #chat-flex {
+    .chat-room-display {
+      display: block !important;
+      width: 70% !important;
+    }
+    #chat-room-name {
+      display: block !important;
+      width: 30% !important;
+    }
+  }
+}
+
 @media only screen and (max-width: 430px) {
   #chat-flex {
     .chat-room-display {
       display: none;
+
+      .user-chat-box {
+        .chat-header {
+          .back-button {
+            display: block;
+            font-size: xx-large;
+            margin-left: 5px;
+          }
+        }
+      }
     }
 
     #chat-room-name {

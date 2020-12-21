@@ -92,44 +92,12 @@ socket.on("receive_message", function (data) {
   }
 });
 
-// function createArea(chatRoom, friend, user) {
-//   console.log(chatRoom);
-//   return ` <div class="user-chat-box">
-//       <ul id="chat-messages-list-${
-//         chatRoom._id
-//       }" class = "chat-messages-list-style">
-//         ${chatRoom.messages
-//           .map((chat) => {
-//             return `${
-//               user._id === chat.user
-//                 ? `<li class="self-message">
-//                   <div>
-//                     <h3> ${chat.message} </h3>
-//                   </div>
-//                  </li>`
-//                 : `<li class="other-message">
-//                   <div>
-//                     <h3> ${chat.message} </h3>
-//                   </div>
-//                  </li>`
-//             }`;
-//           })
-//           .join("")}
-//       </ul>
-//       <div class="chat-message-input-container">
-//           <input class="chat-message-input" placeholder="Type message here" />
-//           <button id="send-message">
-//            <i class="fas fa-paper-plane"></i>
-//           </button>
-//       </div>
-//     </div> `;
-// }
-
 function createArea(chatRoom, friend, user) {
   console.log(chatRoom);
   return `
   <div class="user-chat-box">
       <div class="chat-header">
+      <div class="back-button"><i class="far fa-arrow-alt-circle-left"></i></div>
         <div class="header-avatar">
         ${
           friend.avatar
@@ -143,7 +111,7 @@ function createArea(chatRoom, friend, user) {
           />`
         }
         </div>
-        <div class="header-name">Harsh Verma</div>
+        <div class="header-name">${friend.name}</div>
       </div>
       <div class="chat-messages-list-style" id="chat-messages-list-${
         chatRoom._id
@@ -208,7 +176,10 @@ $(".chat-list").each(function () {
         currentChatRoom = chatRoom._id;
         userMail = user.email;
 
+        changeScreen();
+
         connectRoom();
+        arrow();
       },
       error: function (error) {
         console.log(error.responseText);
@@ -216,6 +187,20 @@ $(".chat-list").each(function () {
     });
   });
 });
+
+function arrow() {
+  $(".back-button").click(() => {
+    $(".chat-room-display").css("display", "none");
+    $("#chat-room-name").css({ display: "block", width: "100%" });
+  });
+}
+
+function changeScreen() {
+  if (window.innerWidth <= 430) {
+    $(".chat-room-display").css({ display: "block", width: "100%" });
+    $("#chat-room-name").css("display", "none");
+  }
+}
 
 // class ChatEngine{
 //     constructor(chatBoxId,userId){

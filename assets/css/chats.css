@@ -16,6 +16,7 @@ input:focus {
   #chat-flex #chat-room-name::-webkit-scrollbar {
     display: none; }
   #chat-flex #chat-room-name {
+    display: block;
     width: 30%;
     border-right: 1px solid #c4c4c4;
     overflow-y: scroll; }
@@ -57,6 +58,8 @@ input:focus {
         display: flex;
         flex-wrap: nowrap;
         align-items: center; }
+        #chat-flex .chat-room-display .user-chat-box .chat-header .back-button {
+          display: none; }
         #chat-flex .chat-room-display .user-chat-box .chat-header .header-avatar {
           height: 50px;
           width: 50px;
@@ -118,7 +121,8 @@ input:focus {
         width: 100%;
         display: flex;
         flex-direction: row;
-        border-top: 1px solid #c4c4c4; }
+        border-top: 1px solid #c4c4c4;
+        background-color: aquamarine; }
         #chat-flex .chat-room-display .user-chat-box .chat-message-input-container .chat-message-input {
           height: 50%;
           width: 85%;
@@ -131,9 +135,21 @@ input:focus {
           border: none;
           background: #58d258; }
 
+@media only screen and (min-width: 430px) {
+  #chat-flex .chat-room-display {
+    display: block !important;
+    width: 70% !important; }
+  #chat-flex #chat-room-name {
+    display: block !important;
+    width: 30% !important; } }
+
 @media only screen and (max-width: 430px) {
   #chat-flex .chat-room-display {
     display: none; }
+    #chat-flex .chat-room-display .user-chat-box .chat-header .back-button {
+      display: block;
+      font-size: xx-large;
+      margin-left: 5px; }
   #chat-flex #chat-room-name {
     width: 100%;
     border-right: none; } }
