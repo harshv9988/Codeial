@@ -61,55 +61,132 @@ socket.on("receive_message", function (data) {
 
   if (messageType === "self") {
     messageList.append(
-      ` <li class="self-message">
-        <div>                        
-          <h3> ${data.message} </h3>                    
-         </div>
-      </li>
+      ` <div class="self-message">
+          <div class="self-user">
+            <div class="message-content-self">${data.message}</div>
+          </div>
+        </div>
       `
     );
   } else {
     messageList.append(`
-      <li class="other-message">
-        <div>                        
-          <h3> ${data.message} </h3>                    
-         </div>
-      </li>
+     <div class="other-message">
+          <div class="other-user">
+            <div class="other-user-image">
+              ${
+                otherUser.avatar
+                  ? `<img
+            src="${otherUser.avatar}"
+            alt="image"
+          />`
+                  : `<img
+            src="/images/codeial-default-avatar2.png"
+            alt="image"
+          />`
+              }
+            </div>
+            <div class="message-content-other">${data.message}</div>
+          </div>
+        </div>
     `);
   }
 });
 
+// function createArea(chatRoom, friend, user) {
+//   console.log(chatRoom);
+//   return ` <div class="user-chat-box">
+//       <ul id="chat-messages-list-${
+//         chatRoom._id
+//       }" class = "chat-messages-list-style">
+//         ${chatRoom.messages
+//           .map((chat) => {
+//             return `${
+//               user._id === chat.user
+//                 ? `<li class="self-message">
+//                   <div>
+//                     <h3> ${chat.message} </h3>
+//                   </div>
+//                  </li>`
+//                 : `<li class="other-message">
+//                   <div>
+//                     <h3> ${chat.message} </h3>
+//                   </div>
+//                  </li>`
+//             }`;
+//           })
+//           .join("")}
+//       </ul>
+//       <div class="chat-message-input-container">
+//           <input class="chat-message-input" placeholder="Type message here" />
+//           <button id="send-message">
+//            <i class="fas fa-paper-plane"></i>
+//           </button>
+//       </div>
+//     </div> `;
+// }
+
 function createArea(chatRoom, friend, user) {
   console.log(chatRoom);
-  return ` <div class="user-chat-box">
-      <ul id="chat-messages-list-${
-        chatRoom._id
-      }" class = "chat-messages-list-style">
-        ${chatRoom.messages
-          .map((chat) => {
-            return `${
-              user._id === chat.user
-                ? `<li class="self-message">
-                  <div>                        
-                    <h3> ${chat.message} </h3>                    
-                  </div>
-                 </li>`
-                : `<li class="other-message">
-                  <div>                        
-                    <h3> ${chat.message} </h3>                    
-                  </div>
-                 </li>`
-            }`;
-          })
-          .join("")}
-      </ul>
-      <div class="chat-message-input-container">
-          <input class="chat-message-input" placeholder="Type message here" />
-          <button id="send-message">
-           <i class="fas fa-paper-plane"></i>
-          </button>
+  return `
+  <div class="user-chat-box">
+      <div class="chat-header">
+        <div class="header-avatar">
+        ${
+          friend.avatar
+            ? `<img
+            src="${friend.avatar}"
+            alt="image"
+          />`
+            : `<img
+            src="/images/codeial-default-avatar2.png"
+            alt="image"
+          />`
+        }
+        </div>
+        <div class="header-name">Harsh Verma</div>
       </div>
-    </div> `;
+      <div class="chat-messages-list-style" id="chat-messages-list-${
+        chatRoom._id
+      }">
+
+      ${chatRoom.messages
+        .map((chat) => {
+          return `${
+            chat.user === user._id
+              ? `<div class="self-message">
+          <div class="self-user">
+            <div class="message-content-self">${chat.message}</div>
+          </div>
+        </div>`
+              : `<div class="other-message">
+          <div class="other-user">
+            <div class="other-user-image">
+              ${
+                friend.avatar
+                  ? `<img
+            src="${friend.avatar}"
+            alt="image"
+          />`
+                  : `<img
+            src="/images/codeial-default-avatar2.png"
+            alt="image"
+          />`
+              }
+            </div>
+            <div class="message-content-other">${chat.message}</div>
+          </div>
+        </div>`
+          }`;
+        })
+        .join("")}
+      </div>
+      <div class="chat-message-input-container">
+        <input class="chat-message-input" placeholder="Type message here" />
+        <button id="send-message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>`;
 }
 
 $(".chat-list").each(function () {
