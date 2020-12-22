@@ -149,7 +149,7 @@ function createArea(chatRoom, friend, user) {
         .join("")}
       </div>
       <div class="chat-message-input-container">
-        <input class="chat-message-input" placeholder="Type message here" />
+        <input class="chat-message-input" placeholder="Type message here" required/>
         <button id="send-message">
           <i class="fas fa-paper-plane"></i>
         </button>
