@@ -40,6 +40,12 @@ var sendMessage = () => {
   }
 
   $("#send-message").click(activateMessageSending); // click action
+
+  $("input").keydown(function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      activateMessageSending();
+    }
+  });
 };
 
 function connectRoom() {
@@ -90,6 +96,7 @@ socket.on("receive_message", function (data) {
         </div>
     `);
   }
+  scrollBottom();
 });
 
 function createArea(chatRoom, friend, user) {
@@ -170,6 +177,7 @@ $(".chat-list").each(function () {
         let room = createArea(chatRoom, friend, user);
         chatArea.empty();
         chatArea.append(room);
+        scrollBottom();
 
         selfUser = user;
         otherUser = friend;
@@ -177,9 +185,9 @@ $(".chat-list").each(function () {
         userMail = user.email;
 
         changeScreen();
-
         connectRoom();
         arrow();
+        tempClass(friendId);
       },
       error: function (error) {
         console.log(error.responseText);
@@ -200,6 +208,16 @@ function changeScreen() {
     $(".chat-room-display").css({ display: "block", width: "100%" });
     $("#chat-room-name").css("display", "none");
   }
+}
+
+function scrollBottom() {
+  let list = document.getElementsByClassName("chat-messages-list-style")[0];
+  list.scrollTop = list.scrollHeight;
+}
+
+function tempClass(friendId) {
+  $("#roomlist > div").removeClass("temporary-highlight");
+  $(`#friend-${friendId}`).addClass("temporary-highlight");
 }
 
 // class ChatEngine{

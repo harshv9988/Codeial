@@ -34,13 +34,16 @@ input:focus {
     #chat-flex #chat-room-name #roomlist .no-friend {
       padding: 40px; }
       #chat-flex #chat-room-name #roomlist .no-friend h2 {
-        font-family: sans-serif;
-        font-weight: 100; }
+        font-weight: 100;
+        font-size: large;
+        text-align: center;
+        color: #6a6ac1; }
+    #chat-flex #chat-room-name #roomlist .temporary-highlight {
+      background-color: #d1d1d1; }
     #chat-flex #chat-room-name #roomlist .chat-list {
       padding: 0px 25px;
       border-bottom: 1px solid #c4c4c4;
-      cursor: pointer;
-      background-color: #eeeeee; }
+      cursor: pointer; }
       #chat-flex #chat-room-name #roomlist .chat-list .friend-wrapper {
         display: flex;
         flex-wrap: nowrap;

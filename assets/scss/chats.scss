@@ -46,15 +46,20 @@ input:focus {
       .no-friend {
         padding: 40px;
         h2 {
-          font-family: sans-serif;
           font-weight: 100;
+          font-size: large;
+          text-align: center;
+          color: #6a6ac1;
         }
+      }
+      .temporary-highlight {
+        background-color: #d1d1d1;
       }
       .chat-list {
         padding: 0px 25px;
         border-bottom: 1px solid #c4c4c4;
         cursor: pointer;
-        background-color: #eeeeee;
+
         .friend-wrapper {
           display: flex;
           flex-wrap: nowrap;
