@@ -15,10 +15,14 @@ router.post('/create-session',passport.authenticate(
 router.get('/sign-out',userController.destroySession);
 
 //google auth
-router.get('/auth/google',passport.authenticate('google'));
+router.get('/auth/google',passport.authenticate('google',{scope : ['profile','email']}));
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}),userController.createSession);
 
 //github auth
 router.get('/auth/github',passport.authenticate('github',{scope : ['profile','email']}));
 router.get('/auth/github/callback',passport.authenticate('github',{failureRedirect:'/users/sign-in'}),userController.createSession);
+
+//facebook auth
+router.get('/auth/facebook',passport.authenticate('facebook'));
+router.get('/auth/facebook/callback',passport.authenticate('facebook',{failureRedirect:'/users/sign-in'}),userController.createSession);
 module.exports = router;

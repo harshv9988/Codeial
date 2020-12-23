@@ -11,7 +11,6 @@ socket.on("connect", function () {
 });
 
 function joinRoom() {
-  console.log("call");
   socket.emit("join_room", {
     user_email: userMail,
     chatroom: currentChatRoom,

@@ -1,18 +1,19 @@
 const passport = require('passport');
-var GitHubStrategy = require('passport-github').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 const crypto = require('crypto');
 const User = require('../models/user');
 const env = require('./environment');
 
 //creating passport strategy
-passport.use(new GitHubStrategy({
-    clientID : "0da52c6e74f9aa137cf8",
-    clientSecret : "5029d2245988c4b6196493d2be5aeb6b151b7e93",
-    callbackURL :  env.github_call_back_url
+passport.use(new FacebookStrategy({
+    clientID : "731005534463597",
+    clientSecret : "3add46ee3e4fc18bca44b248912b8d89",
+    callbackURL :  "http://localhost:8000/users/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'photos', 'email']
 },
     function(accessToken, refreshToken, profile, done){
-        console.log("profile-github",profile);
-        User.findOne({email : profile.username}).exec(function(err,user){
+        console.log("profile-facebook",profile);
+        User.findOne({email : profile.id}).exec(function(err,user){
             if(err){
                 console.log('error in passport-github-oauth',err);
                 return;
@@ -25,7 +26,7 @@ passport.use(new GitHubStrategy({
             }else{    //if not then create one
                 User.create({
                     name : profile.displayName,
-                    email : profile.username,
+                    email : profile.id,
                     password : crypto.randomBytes(20).toString('hex')
                 }, function(err,user){
                     if(err){

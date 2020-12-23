@@ -30,6 +30,7 @@ const development = {
     google_client_id : "444118020441-dsvdkhhurr1qh5guncmekic6h647g7ha.apps.googleusercontent.com",
     google_client_secret : "EVoeFUxUGtrkhDhlJt8dMsZ4",
     google_call_back_url : "http://localhost:8000/users/auth/google/callback",
+    github_cal_back_url : "http://localhost:8000/users/auth/github/callback",
     jwt_secret : 'codeial',
     morgan : {
         mode : 'dev',
@@ -55,6 +56,7 @@ const production = {
     google_client_id : process.env.SOCIALARRAY_GOOGLE_CLIENT_ID,
     google_client_secret : process.env.SOCIALARRAY_GOOGLE_CLIENT_SECRET,
     google_call_back_url : "http://socialarray.co.in/users/auth/google/callback",
+    github_cal_back_url : "http://socialarray.co.in/users/auth/github/callback",
     jwt_secret : process.env.SOCIALARRAY_JWT_SECRET,
     morgan : {
         mode : 'combined',
