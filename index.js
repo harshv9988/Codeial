@@ -24,6 +24,9 @@ const passportJwt = require("./config/passport-jwt-strategy");
 //passport google auth
 const passportGoogle = require("./config/passport-google-oauth2-strategy");
 
+//for github auth
+const passportGithub = require("./config/passport-oauth-github");
+
 //configuring the database
 const db = require("./config/mongoose");
 const MongoStore = require("connect-mongo")(session);
