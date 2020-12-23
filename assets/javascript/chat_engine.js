@@ -5,12 +5,13 @@ let otherUser;
 let currentChatRoom;
 let roomList = [];
 
-var socket = io.connect("http://15.207.84.232:5000");
+var socket = io.connect("http://localhost:5000");
 socket.on("connect", function () {
   console.log("connection established using sockets...!");
 });
 
 function joinRoom() {
+  console.log("call");
   socket.emit("join_room", {
     user_email: userMail,
     chatroom: currentChatRoom,
@@ -48,6 +49,7 @@ var sendMessage = () => {
 };
 
 function connectRoom() {
+  
   if (!roomList.includes(currentChatRoom)) {
     joinRoom();
     roomList.push(currentChatRoom);
@@ -165,7 +167,6 @@ function createArea(chatRoom, friend, user) {
 $(".chat-list").each(function () {
   $(this).click(function () {
     const friendId = $(this).attr("data-friendId");
-
     $.ajax({
       type: "GET",
       url: `/messages/chatroom?friend=${friendId}`,
