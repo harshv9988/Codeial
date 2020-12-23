@@ -5,7 +5,7 @@ let otherUser;
 let currentChatRoom;
 let roomList = [];
 
-var socket = io.connect("http://localhost:5000");
+var socket = io.connect("http://15.207.84.232:5000");
 socket.on("connect", function () {
   console.log("connection established using sockets...!");
 });
@@ -23,7 +23,6 @@ function joinRoom() {
 
 var sendMessage = () => {
   function activateMessageSending() {
-    console.log("aa gya");
     let inputBox = $(".chat-message-input");
     let msg = inputBox.val();
 
@@ -100,7 +99,6 @@ socket.on("receive_message", function (data) {
 });
 
 function createArea(chatRoom, friend, user) {
-  console.log(chatRoom);
   return `
   <div class="user-chat-box">
       <div class="chat-header">
@@ -184,8 +182,8 @@ $(".chat-list").each(function () {
         currentChatRoom = chatRoom._id;
         userMail = user.email;
 
-        changeScreen();
         connectRoom();
+        changeScreen();
         arrow();
         tempClass(friendId);
       },

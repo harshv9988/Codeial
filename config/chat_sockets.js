@@ -1,6 +1,6 @@
 const Chat = require("../models/chat");
 const Chatroom = require("../models/chatroom");
-
+var room;
 module.exports.chatSockets = async function (socketServer) {
   let io = require("socket.io")(socketServer);
 
