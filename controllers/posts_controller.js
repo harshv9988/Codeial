@@ -30,6 +30,33 @@ module.exports.create = async function(req,res){
     }
 }
 
+
+module.exports.upload = async function(req,res){
+
+    try{
+
+        await Post.uploadedImage(req,res, async function(err){
+            if(err){ 
+                console.log('***Multer error', err); 
+                return;
+            }
+
+           let post = await Post.create({
+               user : req.user._id,
+               postImage : Post.imagePath + '/' + req.file.filename
+           });
+
+           req.flash('success', 'Post created successfully');
+           return res.redirect('back');
+        })
+
+    }catch(err){
+        req.flash('error',err);
+        console.log('image ulpoad error',err);
+        return res.redirect('back');
+    }
+}
+
 module.exports.destroy = async function(req,res){
     try{
         let post = await Post.findById(req.params.id);

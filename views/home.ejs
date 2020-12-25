@@ -71,7 +71,7 @@
                             <form action="/posts/uploadImage" method="POST" enctype="multipart/form-data" id="post-image-form">
                                 <div id="flex-input">
                                     <div>
-                                        <input type="file" class="form-control-file" id="post-file-upload" onchange="loadFile(event)" name="postImage">
+                                        <input type="file" accept="image/*" class="form-control-file" id="post-file-upload" onchange="loadFile(event)" name="postImage" required>
                                     </div>
                                    
                                 </div>

@@ -34,16 +34,19 @@
         </div>
     </div>
     <div class="card-body">
-        
+
+        <%if(i.postImage){%>
+            <div class="posted-image">
+                <img src="<%=i.postImage%>" alt="post">  
+            </div>
+        <%}else{%>
             <p>
                 <small>
                     <%= i.content %>
                 </small>
                 <br>
-                <small>
-                </small>
             </p>   
-            
+        <%}%>
         
     </div>
     <%if(locals.user){%>
