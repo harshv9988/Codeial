@@ -31,6 +31,20 @@ body {
     width: 500px; }
     #home-flex #post-info .card-body textarea {
       width: 80%; }
+    #home-flex #post-info .card-body #flex-input {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center; }
+      #home-flex #post-info .card-body #flex-input div {
+        width: 200px; }
+    #home-flex #post-info .card-body #preview-image {
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      margin-top: 15px; }
+      #home-flex #post-info .card-body #preview-image img {
+        width: 100%;
+        height: 100%; }
   #home-flex #user-info {
     width: 240px;
     margin-right: 10px; }
