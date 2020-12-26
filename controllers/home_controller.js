@@ -26,7 +26,6 @@ module.exports.home = async function(req,res){
          .populate('friendship', 'name email avatar');
         }
 
-        console.log('------------>',signInUserFriends);
 
        
         return res.render('home',{

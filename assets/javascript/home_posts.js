@@ -71,15 +71,23 @@
           </div>
       </div>
       <div class="card-body">
-          
+             
+
+
+              ${post.postImage ? `
+                <div class="posted-image">
+                     <img src="${post.postImage}" alt="post">  
+                </div>
+              ` : `
               <p>
-                  <small>
-                      ${post.content}
-                  </small>
-                  <br>
-                  <small>
-                  </small>
-              </p>   
+                <small>
+                     ${post.content}
+                </small>
+                <br>
+             </p>   
+              `}
+               
+           
               
           
       </div>
