@@ -43,9 +43,11 @@ module.exports.upload = async function(req,res){
                 return;
             }
 
+            let mainPath = path.join(Post.imagePath,'/',req.file.filename);
+
            let post = await Post.create({
                user : req.user._id,
-               postImage : Post.imagePath + '/' + req.file.filename
+               postImage : mainPath
            });
 
            req.flash('success', 'Post created successfully');
