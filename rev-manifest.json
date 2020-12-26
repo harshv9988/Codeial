@@ -1,13 +1,13 @@
 {
-  "css/chats.css": "css/chats-e9b47aadcb.css",
+  "css/chats.css": "css/chats-e7f66bc195.css",
   "css/comment.css": "css/comment-787c944035.css",
   "css/footer.css": "css/footer-c69319374b.css",
   "css/header.css": "css/header-1a1f321bc0.css",
-  "css/home.css": "css/home-973fdb4244.css",
+  "css/home.css": "css/home-f9d90b45bf.css",
   "css/layout.css": "css/layout-ca3a9141cf.css",
-  "css/post.css": "css/post-0413c2f83d.css",
+  "css/post.css": "css/post-bb5d754b56.css",
   "css/user_profile.css": "css/user_profile-e4da4567c2.css",
-  "css/user_sign_in.css": "css/user_sign_in-d116aac8a8.css",
+  "css/user_sign_in.css": "css/user_sign_in-58bee0b815.css",
   "css/user_sign_up.css": "css/user_sign_up-b3d1eea1fb.css",
   "images/Mail.svg": "images/Mail-490b3c3393.svg",
   "images/back-1.jpg": "images/back-1-218a72a938.jpg",
@@ -27,6 +27,6 @@
   "images/welcome.svg": "images/welcome-4d9b328831.svg",
   "javascript/chat_engine.js": "javascript/chat_engine-bc11c98f33.js",
   "javascript/home_post_comments.js": "javascript/home_post_comments-37ea3931b7.js",
-  "javascript/home_posts.js": "javascript/home_posts-a0b9320212.js",
+  "javascript/home_posts.js": "javascript/home_posts-c77b751870.js",
   "javascript/toggle_likes.js": "javascript/toggle_likes-eaa59f6014.js"
 }
