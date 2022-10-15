@@ -4,7 +4,7 @@ let selfUser,
   currentChatRoom,
   chatArea = $(".chat-room-display"),
   roomList = [];
-var socket = io.connect("http://3.108.52.176:5000");
+var socket = io.connect("http://3.109.186.86:5000");
 function joinRoom() {
   socket.emit("join_room", { user_email: userMail, chatroom: currentChatRoom }),
     socket.on("user_joined", function (e) {
